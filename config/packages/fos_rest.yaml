@@ -8,6 +8,7 @@ fos_rest:
         view_response_listener: true
         formats:
             json: true
+    versioning: true
     format_listener:
         enabled: true
         rules:

@@ -1,3 +1,6 @@
 controllers:
     resource: ../../src/Controller/
     type: annotation
+    prefix: /api/{version}/
+    defaults:
+        version: v1

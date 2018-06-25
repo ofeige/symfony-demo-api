@@ -19,6 +19,8 @@ class UserController extends FOSRestController
 {
 
     /**
+     * Returns the users in the system.
+     *
      * @Rest\Get("/users")
      * @Rest\View()
      *
@@ -34,7 +36,9 @@ class UserController extends FOSRestController
      * @param EntityManagerInterface $entityManager
      * @param Filter $filter
      * @param Sort $sort
-     * @return User[]|array
+     * @param Pagination $pagination
+     *
+     * @return User[]
      */
     public function getUsers(EntityManagerInterface $entityManager, Filter $filter, Sort $sort, Pagination $pagination)
     {
