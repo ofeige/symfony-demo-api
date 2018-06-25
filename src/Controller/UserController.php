@@ -4,11 +4,16 @@ namespace App\Controller;
 
 use App\Entity\Address;
 use App\Entity\User;
+use App\Repository\UserRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use FOS\RestBundle\Controller\FOSRestController;
 use FOS\RestBundle\Controller\Annotations as Rest;
 use FOS\RestBundle\View\View;
+use Ofeige\Rfc14Bundle\Service\Filter;
+use Ofeige\Rfc14Bundle\Service\Pagination;
+use Ofeige\Rfc14Bundle\Service\Sort;
 use Symfony\Component\HttpFoundation\Response;
+use Ofeige\Rfc14Bundle\Annotation as Rfc14;
 
 class UserController extends FOSRestController
 {
@@ -17,14 +22,26 @@ class UserController extends FOSRestController
      * @Rest\Get("/users")
      * @Rest\View()
      *
+     * @Rfc14\Filter(name="username")
+     * @Rfc14\Filter(name="created")
+     * @Rfc14\Filter(name="country", queryBuilderName="a.country")
+     *
+     * @Rfc14\Sort(name="username")
+     * @Rfc14\Sort(name="zipcode", queryBuilderName="a.zipCode")
+     *
+     * @Rfc14\Pagination
+     *
      * @param EntityManagerInterface $entityManager
+     * @param Filter $filter
+     * @param Sort $sort
      * @return User[]|array
      */
-    public function getUsers(EntityManagerInterface $entityManager)
+    public function getUsers(EntityManagerInterface $entityManager, Filter $filter, Sort $sort, Pagination $pagination)
     {
+        /** @var UserRepository $userRepository */
         $userRepository = $entityManager->getRepository(User::class);
 
-        $users = $userRepository->findAll();
+        $users = $userRepository->findByRfc14($filter, $sort, $pagination);
 
         return $users;
     }

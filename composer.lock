@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "8f0811cb68db8da6bdd0fa1da6f758d3",
+    "content-hash": "aabf5dda31c9ffdfde9adb7f462c1692",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -1563,6 +1563,54 @@
                 "service proxies"
             ],
             "time": "2017-11-16T23:22:31+00:00"
+        },
+        {
+            "name": "ofeige/rfc14-bundle",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ofeige/rfc14-bundle.git",
+                "reference": "619262b2eb31b1a3e7abe8d74466d29f9343113b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ofeige/rfc14-bundle/zipball/619262b2eb31b1a3e7abe8d74466d29f9343113b",
+                "reference": "619262b2eb31b1a3e7abe8d74466d29f9343113b",
+                "shasum": ""
+            },
+            "require": {
+                "doctrine/annotations": "^1.6",
+                "doctrine/orm": "^2.6",
+                "php": "^7.1.3",
+                "symfony/config": "^4.1",
+                "symfony/dependency-injection": "^4.1",
+                "symfony/framework-bundle": "^4.1",
+                "symfony/http-kernel": "^4.1"
+            },
+            "suggest": {
+                "friendsofsymfony/rest-bundle": "Automatically renders errors and transform paginations into a {\"total\": 123, \"data\": [..]} array"
+            },
+            "type": "symfony-bundle",
+            "autoload": {
+                "psr-4": {
+                    "Ofeige\\Rfc14Bundle\\": ""
+                },
+                "exclude-from-classmap": [
+                    "Tests/"
+                ]
+            },
+            "authors": [
+                {
+                    "name": "Michael Wolf",
+                    "email": "wulf1337@gmail.com"
+                }
+            ],
+            "description": "This bundle provides filter, sorting and pagination for RESTful API's",
+            "support": {
+                "source": "https://github.com/ofeige/rfc14-bundle/tree/master",
+                "issues": "https://github.com/ofeige/rfc14-bundle/issues"
+            },
+            "time": "2018-06-25T07:22:03+00:00"
         },
         {
             "name": "phpcollection/phpcollection",
@@ -4579,6 +4627,7 @@
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
+        "ofeige/rfc14-bundle": 20,
         "symfony/lts": 20
     },
     "prefer-stable": false,

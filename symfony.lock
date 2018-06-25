@@ -104,6 +104,9 @@
     "ocramius/proxy-manager": {
         "version": "2.2.0"
     },
+    "ofeige/rfc14-bundle": {
+        "version": "dev-master"
+    },
     "phpcollection/phpcollection": {
         "version": "0.5.0"
     },
