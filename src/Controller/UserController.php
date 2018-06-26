@@ -12,6 +12,7 @@ use FOS\RestBundle\View\View;
 use Ofeige\Rfc14Bundle\Service\Filter;
 use Ofeige\Rfc14Bundle\Service\Pagination;
 use Ofeige\Rfc14Bundle\Service\Sort;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Symfony\Component\HttpFoundation\Response;
 use Ofeige\Rfc14Bundle\Annotation as Rfc14;
 
@@ -79,6 +80,8 @@ class UserController extends FOSRestController
     /**
      * @Rest\Get("/users/{id}/addresses/{type}")
      * @Rest\View()
+     *
+     * @Security("has_role('ROLE_ADMIN')")
      *
      * @param User $user
      * @param string $type

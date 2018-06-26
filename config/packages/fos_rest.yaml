@@ -9,6 +9,11 @@ fos_rest:
         formats:
             json: true
     versioning: true
+    access_denied_listener:
+        enabled: true
+        formats:
+            json: true
+            php: true
     format_listener:
         enabled: true
         rules:
