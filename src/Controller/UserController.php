@@ -25,7 +25,6 @@ use Symfony\Component\Validator\ConstraintViolationListInterface;
 
 class UserController extends FOSRestController
 {
-
     /**
      * Returns the users in the system.
      *
@@ -41,6 +40,7 @@ class UserController extends FOSRestController
      *
      * @Rfc14\Pagination
      *
+     * @SWG\Tag(name="User")
      * @SWG\Response(
      *     response=200,
      *     description="List of users matching the filter",
@@ -70,6 +70,7 @@ class UserController extends FOSRestController
      * @Rest\Get("/users/{id}")
      * @Rest\View(serializerGroups={"user"})
      *
+     * @SWG\Tag(name="User")
      * @SWG\Parameter(name="id", in="path", type="integer", description="User id")
      * @SWG\Response(
      *     response=200,
@@ -92,6 +93,7 @@ class UserController extends FOSRestController
      * @Rest\Get("/users/{id}/addresses")
      * @Rest\View(serializerGroups={"address"})
      *
+     * @SWG\Tag(name="User")
      * @SWG\Parameter(name="id", in="path", type="integer", description="User id")
      * @SWG\Response(
      *     response=200,
@@ -114,6 +116,7 @@ class UserController extends FOSRestController
      * @Rest\Get("/users/{id}/addresses/{type}")
      * @Rest\View(serializerGroups={"address"})
      *
+     * @SWG\Tag(name="User")
      * @SWG\Parameter(name="id", in="path", type="integer", description="User id")
      * @SWG\Parameter(name="type", in="path", type="string", enum={"delivery","billing"}, description="Type of the address")
      * @SWG\Response(
@@ -148,6 +151,7 @@ class UserController extends FOSRestController
      *
      * @ParamConverter("user", converter="fos_rest.request_body")
      *
+     * @SWG\Tag(name="User")
      * @SWG\Response(
      *     response=200,
      *     description="User",
