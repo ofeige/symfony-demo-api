@@ -21,6 +21,12 @@ fos_rest:
         enabled: true
         rules:
             - { path: ^/, prefer_extension: true, fallback_format: json, priorities: [ json ] }
+    exception:
+        codes:
+            App\Exception\ValidationException: 400
+            Ofeige\Rfc14Bundle\Exception\FilterException: 400
+            Ofeige\Rfc14Bundle\Exception\SortException: 400
+            Ofeige\Rfc14Bundle\Exception\PaginationException: 400
 
 sensio_framework_extra:
     request: { converters: true }

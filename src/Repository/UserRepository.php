@@ -4,6 +4,8 @@ namespace App\Repository;
 
 use App\Entity\User;
 use Doctrine\ORM\EntityRepository;
+use Doctrine\ORM\OptimisticLockException;
+use Doctrine\ORM\ORMException;
 use Ofeige\Rfc14Bundle\Service\Filter;
 use Ofeige\Rfc14Bundle\Service\Pagination;
 use Ofeige\Rfc14Bundle\Service\Sort;
@@ -26,5 +28,25 @@ class UserRepository extends EntityRepository
         $pagination->applyToQueryBuilder($qb);
 
         return $qb->getQuery()->getResult();
+    }
+
+    /**
+     * @param User $user
+     * @throws ORMException
+     * @throws OptimisticLockException
+     */
+    public function persist(User $user): void
+    {
+        if ($user->getCreated() === null) {
+            $user->setCreated(new \DateTime());
+        }
+
+        if ($user->getPlainPassword() !== null) {
+            $user->setPasswordSalt(uniqid())
+                ->setPasswordHash(md5($user->getPlainPassword() . $user->getPasswordSalt()));
+        }
+
+        $this->getEntityManager()->persist($user);
+        $this->getEntityManager()->flush($user);
     }
 }

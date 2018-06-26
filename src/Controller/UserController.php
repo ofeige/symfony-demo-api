@@ -4,8 +4,11 @@ namespace App\Controller;
 
 use App\Entity\Address;
 use App\Entity\User;
+use App\Exception\ValidationException;
 use App\Repository\UserRepository;
 use Doctrine\ORM\EntityManagerInterface;
+use Doctrine\ORM\OptimisticLockException;
+use Doctrine\ORM\ORMException;
 use FOS\RestBundle\Controller\FOSRestController;
 use FOS\RestBundle\Controller\Annotations as Rest;
 use FOS\RestBundle\View\View;
@@ -105,7 +108,7 @@ class UserController extends FOSRestController
      * Creates a new user.
      *
      * @Rest\Post("/users")
-     * @Rest\View()
+     * @Rest\View(serializerGroups={"user"})
      *
      * @IsGranted("ROLE_ADMIN")
      *
@@ -114,22 +117,22 @@ class UserController extends FOSRestController
      * @param ConstraintViolationListInterface $validationErrors
      * @param User $user
      *
-     * @return bool|View
+     * @return User
+     *
+     * @throws ORMException
+     * @throws OptimisticLockException
      */
     public function postUser(ConstraintViolationListInterface $validationErrors, User $user)
     {
         if (count($validationErrors) > 0) {
-            return new View($validationErrors, Response::HTTP_BAD_REQUEST);
+            throw new ValidationException($validationErrors);
         }
 
-        $user->setPasswordSalt(uniqid())
-            ->setPasswordHash(md5($user->getPlainPassword() . $user->getPasswordSalt()))
-            ->setCreated(new \DateTime());
+        /** @var UserRepository $userRepository */
+        $userRepository = $this->getDoctrine()->getRepository(User::class);
 
-        $em = $this->getDoctrine()->getManager();
-        $em->persist($user);
-        $em->flush();
+        $userRepository->persist($user);
 
-        return true;
+        return $user;
     }
 }
