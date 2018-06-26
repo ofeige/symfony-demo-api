@@ -41,6 +41,8 @@ class UserController extends FOSRestController
      * @param Sort $sort
      * @param Pagination $pagination
      *
+     * //TODO: Response to docs (autogenerate from return type and the serializerGroups above??)
+     *
      * @return User[]
      */
     public function getUsers(EntityManagerInterface $entityManager, Filter $filter, Sort $sort, Pagination $pagination)
