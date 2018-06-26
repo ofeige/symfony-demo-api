@@ -12,11 +12,13 @@ use Doctrine\ORM\ORMException;
 use FOS\RestBundle\Controller\FOSRestController;
 use FOS\RestBundle\Controller\Annotations as Rest;
 use FOS\RestBundle\View\View;
+use Nelmio\ApiDocBundle\Annotation\Model;
 use Ofeige\Rfc14Bundle\Service\Filter;
 use Ofeige\Rfc14Bundle\Service\Pagination;
 use Ofeige\Rfc14Bundle\Service\Sort;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
+use Swagger\Annotations as SWG;
 use Symfony\Component\HttpFoundation\Response;
 use Ofeige\Rfc14Bundle\Annotation as Rfc14;
 use Symfony\Component\Validator\ConstraintViolationListInterface;
@@ -39,12 +41,16 @@ class UserController extends FOSRestController
      *
      * @Rfc14\Pagination
      *
+     * @SWG\Response(
+     *     response=200,
+     *     description="List of users matching the filter",
+     *     @SWG\Schema(type="array", @SWG\Items(ref=@Model(type=User::class, groups={"user"})))
+     * )
+     *
      * @param EntityManagerInterface $entityManager
      * @param Filter $filter
      * @param Sort $sort
      * @param Pagination $pagination
-     *
-     * //TODO: Response to docs (autogenerate from return type and the serializerGroups above??)
      *
      * @return User[]
      */
@@ -59,8 +65,17 @@ class UserController extends FOSRestController
     }
 
     /**
+     * Returns the user object for the given id.
+     *
      * @Rest\Get("/users/{id}")
      * @Rest\View(serializerGroups={"user"})
+     *
+     * @SWG\Parameter(name="id", in="path", type="integer", description="User id")
+     * @SWG\Response(
+     *     response=200,
+     *     description="User",
+     *     @Model(type=User::class, groups={"user"})
+     * )
      *
      * @param User $user
      *
@@ -72,8 +87,17 @@ class UserController extends FOSRestController
     }
 
     /**
+     * Returns all addresses for the given user.
+     *
      * @Rest\Get("/users/{id}/addresses")
      * @Rest\View(serializerGroups={"address"})
+     *
+     * @SWG\Parameter(name="id", in="path", type="integer", description="User id")
+     * @SWG\Response(
+     *     response=200,
+     *     description="List of addresses of the user",
+     *     @SWG\Schema(type="array", @SWG\Items(ref=@Model(type=Address::class, groups={"address"})))
+     * )
      *
      * @param User $user
      *
@@ -85,8 +109,18 @@ class UserController extends FOSRestController
     }
 
     /**
+     * Returns the specific address for the given user.
+     *
      * @Rest\Get("/users/{id}/addresses/{type}")
      * @Rest\View(serializerGroups={"address"})
+     *
+     * @SWG\Parameter(name="id", in="path", type="integer", description="User id")
+     * @SWG\Parameter(name="type", in="path", type="string", enum={"delivery","billing"}, description="Type of the address")
+     * @SWG\Response(
+     *     response=200,
+     *     description="Specific address of the user",
+     *     @Model(type=Address::class, groups={"address"})
+     * )
      *
      * @param User $user
      * @param string $type
@@ -113,6 +147,12 @@ class UserController extends FOSRestController
      * @IsGranted("ROLE_ADMIN")
      *
      * @ParamConverter("user", converter="fos_rest.request_body")
+     *
+     * @SWG\Response(
+     *     response=200,
+     *     description="User",
+     *     @Model(type=User::class, groups={"user"})
+     * )
      *
      * @param ConstraintViolationListInterface $validationErrors
      * @param User $user
