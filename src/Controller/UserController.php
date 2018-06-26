@@ -12,9 +12,11 @@ use FOS\RestBundle\View\View;
 use Ofeige\Rfc14Bundle\Service\Filter;
 use Ofeige\Rfc14Bundle\Service\Pagination;
 use Ofeige\Rfc14Bundle\Service\Sort;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 use Symfony\Component\HttpFoundation\Response;
 use Ofeige\Rfc14Bundle\Annotation as Rfc14;
+use Symfony\Component\Validator\ConstraintViolationListInterface;
 
 class UserController extends FOSRestController
 {
@@ -23,7 +25,7 @@ class UserController extends FOSRestController
      * Returns the users in the system.
      *
      * @Rest\Get("/users")
-     * @Rest\View()
+     * @Rest\View(serializerGroups={"user"})
      *
      * @Rfc14\Filter(name="username")
      * @Rfc14\Filter(name="created")
@@ -53,7 +55,7 @@ class UserController extends FOSRestController
 
     /**
      * @Rest\Get("/users/{id}")
-     * @Rest\View()
+     * @Rest\View(serializerGroups={"user"})
      *
      * @param User $user
      *
@@ -66,7 +68,7 @@ class UserController extends FOSRestController
 
     /**
      * @Rest\Get("/users/{id}/addresses")
-     * @Rest\View()
+     * @Rest\View(serializerGroups={"address"})
      *
      * @param User $user
      *
@@ -79,9 +81,7 @@ class UserController extends FOSRestController
 
     /**
      * @Rest\Get("/users/{id}/addresses/{type}")
-     * @Rest\View()
-     *
-     * @Security("has_role('ROLE_ADMIN')")
+     * @Rest\View(serializerGroups={"address"})
      *
      * @param User $user
      * @param string $type
@@ -97,5 +97,37 @@ class UserController extends FOSRestController
         }
 
         return $this->view('No matching address found.', Response::HTTP_NOT_FOUND);
+    }
+
+    /**
+     * Creates a new user.
+     *
+     * @Rest\Post("/users")
+     * @Rest\View()
+     *
+     * @IsGranted("ROLE_ADMIN")
+     *
+     * @ParamConverter("user", converter="fos_rest.request_body")
+     *
+     * @param ConstraintViolationListInterface $validationErrors
+     * @param User $user
+     *
+     * @return bool|View
+     */
+    public function postUser(ConstraintViolationListInterface $validationErrors, User $user)
+    {
+        if (count($validationErrors) > 0) {
+            return new View($validationErrors, Response::HTTP_BAD_REQUEST);
+        }
+
+        $user->setPasswordSalt(uniqid())
+            ->setPasswordHash(md5($user->getPlainPassword() . $user->getPasswordSalt()))
+            ->setCreated(new \DateTime());
+
+        $em = $this->getDoctrine()->getManager();
+        $em->persist($user);
+        $em->flush();
+
+        return true;
     }
 }

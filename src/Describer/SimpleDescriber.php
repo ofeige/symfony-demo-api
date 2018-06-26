@@ -19,7 +19,7 @@ class SimpleDescriber implements DescriberInterface
                 /** @var Parameter $parameter */
                 foreach ($path->getOperation($method)->getParameters() as $parameter) {
                     if ($parameter->getName() === 'version' && $parameter->getDefault() === null) {
-                        $parameter->setDefault('v1');
+                        $parameter->setDefault('1');
                     }
                 }
             }

@@ -3,6 +3,8 @@ namespace App\Entity;
 
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
  * Class User
@@ -18,6 +20,8 @@ class User {
     /**
      * @var int
      *
+     * @Groups({"user"})
+     *
      * @ORM\Column(name="user_id", type="integer", nullable=false, options={"unsigned"=true})
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
@@ -27,28 +31,45 @@ class User {
     /**
      * @var string
      *
+     * @Groups({"user"})
+     *
      * @ORM\Column(name="user_username", type="string", length=255)
+     *
+     * @Assert\NotBlank()
      */
     private $username;
 
     /**
      * @var string
      *
+     * @Groups({"user"})
+     *
      * @ORM\Column(name="user_email", type="string", length=255)
+     *
+     * @Assert\NotBlank()
+     * @Assert\Email()
      */
     private $email;
 
     /**
      * @var string
      *
+     * @Groups({"user"})
+     *
      * @ORM\Column(name="user_forename", type="string", length=255)
+     *
+     * @Assert\NotBlank()
      */
     private $forename;
 
     /**
      * @var string
      *
+     * @Groups({"user"})
+     *
      * @ORM\Column(name="user_surname", type="string", length=255)
+     *
+     * @Assert\NotBlank()
      */
     private $surname;
 
@@ -67,6 +88,17 @@ class User {
     private $passwordSalt;
 
     /**
+     * @var string
+     *
+     * @Assert\NotBlank()
+     * @Assert\Length(min="8")
+     * @Assert\Regex("/[a-z]/", message="This value should contain a lower case letter.")
+     * @Assert\Regex("/[A-Z]/", message="This value should contain an upper case letter.")
+     * @Assert\Regex("/[0-9]/", message="This value should contain a digit.")
+     */
+    private $plainPassword;
+
+    /**
      * @var Address[]
      *
      * @ORM\OneToMany(targetEntity="App\Entity\Address", mappedBy="user")
@@ -76,12 +108,19 @@ class User {
     /**
      * @var string
      *
+     * @Groups({"user"})
+     *
      * @ORM\Column(name="user_active", type="string", length=255, columnDefinition="ENUM('yes','no')")
+     *
+     * @Assert\NotBlank()
+     * @Assert\Choice({"yes","no"})
      */
     private $active;
 
     /**
      * @var \DateTime
+     *
+     * @Groups({"user"})
      *
      * @ORM\Column(name="user_created", type="datetime")
      */
@@ -108,7 +147,7 @@ class User {
     /**
      * @return string
      */
-    public function getUsername(): string
+    public function getUsername()
     {
         return $this->username;
     }
@@ -126,7 +165,7 @@ class User {
     /**
      * @return string
      */
-    public function getEmail(): string
+    public function getEmail()
     {
         return $this->email;
     }
@@ -144,7 +183,7 @@ class User {
     /**
      * @return string
      */
-    public function getForename(): string
+    public function getForename()
     {
         return $this->forename;
     }
@@ -162,7 +201,7 @@ class User {
     /**
      * @return string
      */
-    public function getSurname(): string
+    public function getSurname()
     {
         return $this->surname;
     }
@@ -180,7 +219,7 @@ class User {
     /**
      * @return string
      */
-    public function getPasswordHash(): string
+    public function getPasswordHash()
     {
         return $this->passwordHash;
     }
@@ -198,7 +237,7 @@ class User {
     /**
      * @return string
      */
-    public function getPasswordSalt(): string
+    public function getPasswordSalt()
     {
         return $this->passwordSalt;
     }
@@ -244,7 +283,7 @@ class User {
     /**
      * @return string
      */
-    public function getActive(): string
+    public function getActive()
     {
         return $this->active;
     }
@@ -262,7 +301,7 @@ class User {
     /**
      * @return \DateTime
      */
-    public function getCreated(): \DateTime
+    public function getCreated()
     {
         return $this->created;
     }
@@ -276,4 +315,23 @@ class User {
         $this->created = $created;
         return $this;
     }
+
+    /**
+     * @return string
+     */
+    public function getPlainPassword()
+    {
+        return $this->plainPassword;
+    }
+
+    /**
+     * @param string $plainPassword
+     * @return User
+     */
+    public function setPlainPassword(string $plainPassword): User
+    {
+        $this->plainPassword = $plainPassword;
+        return $this;
+    }
+
 }

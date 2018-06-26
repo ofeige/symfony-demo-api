@@ -14,6 +14,9 @@ fos_rest:
         formats:
             json: true
             php: true
+    body_converter:
+        enabled: true
+        validate: true
     format_listener:
         enabled: true
         rules:

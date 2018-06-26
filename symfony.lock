@@ -83,24 +83,6 @@
     "jdorn/sql-formatter": {
         "version": "v1.2.17"
     },
-    "jms/metadata": {
-        "version": "1.6.0"
-    },
-    "jms/parser-lib": {
-        "version": "1.0.0"
-    },
-    "jms/serializer": {
-        "version": "1.12.1"
-    },
-    "jms/serializer-bundle": {
-        "version": "2.0",
-        "recipe": {
-            "repo": "github.com/symfony/recipes-contrib",
-            "branch": "master",
-            "version": "2.0",
-            "ref": "fe60ce509ef04a3f40da96e3979bc8d9b13b2372"
-        }
-    },
     "nelmio/api-doc-bundle": {
         "version": "3.0",
         "recipe": {
@@ -119,9 +101,6 @@
     "ofeige/rfc14-bundle": {
         "version": "dev-master"
     },
-    "phpcollection/phpcollection": {
-        "version": "0.5.0"
-    },
     "phpdocumentor/reflection-common": {
         "version": "1.0.1"
     },
@@ -130,9 +109,6 @@
     },
     "phpdocumentor/type-resolver": {
         "version": "0.4.0"
-    },
-    "phpoption/phpoption": {
-        "version": "1.5.0"
     },
     "psr/cache": {
         "version": "1.0.1"
@@ -206,6 +182,9 @@
             "ref": "e921bdbfe20cdefa3b82f379d1cd36df1bc8d115"
         }
     },
+    "symfony/form": {
+        "version": "v4.1.1"
+    },
     "symfony/framework-bundle": {
         "version": "3.3",
         "recipe": {
@@ -224,6 +203,9 @@
     "symfony/inflector": {
         "version": "v4.1.0"
     },
+    "symfony/intl": {
+        "version": "v4.1.1"
+    },
     "symfony/lts": {
         "version": "4-dev"
     },
@@ -232,6 +214,9 @@
     },
     "symfony/orm-pack": {
         "version": "v1.0.5"
+    },
+    "symfony/polyfill-intl-icu": {
+        "version": "v1.8.0"
     },
     "symfony/polyfill-mbstring": {
         "version": "v1.8.0"
@@ -301,6 +286,9 @@
             "version": "3.3",
             "ref": "f75ac166398e107796ca94cc57fa1edaa06ec47f"
         }
+    },
+    "symfony/validator": {
+        "version": "v4.1.1"
     },
     "symfony/var-dumper": {
         "version": "v4.1.0"
