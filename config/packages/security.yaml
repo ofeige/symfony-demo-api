@@ -13,6 +13,10 @@ security:
                     more:
                         password: more
                         roles: 'ROLE_ADMIN'
+
+    role_hierarchy:
+        ROLE_ADMIN:     ROLE_USER
+
     firewalls:
         dev:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
@@ -39,4 +43,4 @@ security:
     access_control:
         # - { path: ^/admin, roles: ROLE_ADMIN }
         # - { path: ^/profile, roles: ROLE_USER }
-        - { path: ^/api, roles: ROLE_USER }
+        - { path: ^/, roles: ROLE_USER }
