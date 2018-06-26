@@ -1,7 +1,7 @@
 # symfony-demo-api
 Symfony Demo Project for REST API including DTO, Mapper, unified rest url handling  
 
-# installation
+## installation
 
 ``` 
 git clone git@github.com:ofeige/symfony-demo-vagrant.git
@@ -28,4 +28,18 @@ bin/console doctrine:migrations:migrate -n
 bin/console doctrine:fixtures:load -n
 ``` 
 
-now you can call http://api.demo.test 
+now create keys for JWTs
+```
+$ mkdir config/jwt
+$ openssl genrsa -out config/jwt/private.pem -aes256 4096
+$ openssl rsa -pubout -in config/jwt/private.pem -out config/jwt/public.pem
+```
+
+In case first openssl command forces you to input password use following to get the private key decrypted
+```
+$ openssl rsa -in config/jwt/private.pem -out config/jwt/private2.pem
+$ mv config/jwt/private.pem config/jwt/private.pem-back
+$ mv config/jwt/private2.pem config/jwt/private.pem
+```
+
+now you can call http://api.demo.test/api/doc with user basic:basic
