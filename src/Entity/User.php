@@ -126,6 +126,11 @@ class User {
      */
     private $created;
 
+    public function __construct()
+    {
+        $this->created = new \DateTime();
+    }
+
     /**
      * @return int
      */
@@ -147,7 +152,7 @@ class User {
     /**
      * @return string
      */
-    public function getUsername()
+    public function getUsername(): string
     {
         return $this->username;
     }
@@ -165,7 +170,7 @@ class User {
     /**
      * @return string
      */
-    public function getEmail()
+    public function getEmail(): string
     {
         return $this->email;
     }
@@ -183,7 +188,7 @@ class User {
     /**
      * @return string
      */
-    public function getForename()
+    public function getForename(): string
     {
         return $this->forename;
     }
@@ -201,7 +206,7 @@ class User {
     /**
      * @return string
      */
-    public function getSurname()
+    public function getSurname(): string
     {
         return $this->surname;
     }
@@ -219,7 +224,7 @@ class User {
     /**
      * @return string
      */
-    public function getPasswordHash()
+    public function getPasswordHash(): string
     {
         return $this->passwordHash;
     }
@@ -237,7 +242,7 @@ class User {
     /**
      * @return string
      */
-    public function getPasswordSalt()
+    public function getPasswordSalt(): string
     {
         return $this->passwordSalt;
     }
@@ -283,7 +288,7 @@ class User {
     /**
      * @return string
      */
-    public function getActive()
+    public function getActive(): string
     {
         return $this->active;
     }
@@ -301,7 +306,7 @@ class User {
     /**
      * @return \DateTime
      */
-    public function getCreated()
+    public function getCreated(): \DateTime
     {
         return $this->created;
     }
@@ -319,7 +324,7 @@ class User {
     /**
      * @return string
      */
-    public function getPlainPassword()
+    public function getPlainPassword(): string
     {
         return $this->plainPassword;
     }

@@ -37,10 +37,6 @@ class UserRepository extends EntityRepository
      */
     public function persist(User $user): void
     {
-        if ($user->getCreated() === null) {
-            $user->setCreated(new \DateTime());
-        }
-
         if ($user->getPlainPassword() !== null) {
             $user->setPasswordSalt(uniqid())
                 ->setPasswordHash(md5($user->getPlainPassword() . $user->getPasswordSalt()));
