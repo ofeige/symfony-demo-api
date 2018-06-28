@@ -39,3 +39,6 @@ services:
         calls:
             - ['registerHandler', ['html', ['@App\Handler\DebugViewHandler', 'createResponse']]]
             - ['registerHandler', ['dto', ['@Ofeige\Rfc1Bundle\Handler\PhpViewHandler', 'createResponse']]]
+
+    app.apcu_cache:
+      class: Doctrine\Common\Cache\ApcuCache
