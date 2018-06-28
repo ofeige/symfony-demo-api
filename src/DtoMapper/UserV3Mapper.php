@@ -33,16 +33,16 @@ class UserV3Mapper implements MapperInterface
      */
     public function map($data)
     {
-            $userDto = new Dto\UserV3();
-            $userDto->setId($data->getId())
-                ->setUsername($data->getUsername())
-                ->setEmail($data->getEmail())
-                ->setForename($data->getForename())
-                ->setSurname($data->getSurname());
+        $userDto = new Dto\UserV3();
+        $userDto->setId($data->getId())
+            ->setUsername($data->getUsername())
+            ->setEmail($data->getEmail())
+            ->setForename($data->getForename())
+            ->setSurname($data->getSurname());
 
-            foreach ($data->getAddresses() as $address) {
-                $userDto->addAddress($this->addressMapper->map($address));
-            }
+        foreach ($data->getAddresses() as $address) {
+            $userDto->addAddress($this->addressMapper->map($address));
+        }
 
         return $userDto;
     }

@@ -30,3 +30,12 @@ services:
     App\DtoMapper\:
         resource: '../src/DtoMapper'
         public: true
+
+    app.view_handler:
+        autowire: true
+        autoconfigure: false
+        public: false
+        parent: fos_rest.view_handler.default
+        calls:
+            - ['registerHandler', ['html', ['@App\Handler\DebugViewHandler', 'createResponse']]]
+            - ['registerHandler', ['dto', ['@Ofeige\Rfc1Bundle\Handler\PhpViewHandler', 'createResponse']]]

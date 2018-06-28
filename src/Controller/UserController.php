@@ -152,14 +152,14 @@ class UserController extends FOSRestController
      * Returns the user object for the given id.
      *
      * @Rest\Get("/v1/users/{id}")
-     * @Rest\View(serializerGroups={"user"})
+     * @Rfc1\View(dtoMapper="App\DtoMapper\UserV3Mapper")
      *
      * @SWG\Tag(name="User")
      * @SWG\Parameter(name="id", in="path", type="integer", description="User id")
      * @SWG\Response(
      *     response=200,
      *     description="User",
-     *     @Model(type=User::class, groups={"user"})
+     *     @Model(type="App\Dto\UserV3")
      * )
      *
      * @param User $user
@@ -175,14 +175,14 @@ class UserController extends FOSRestController
      * Returns all addresses for the given user.
      *
      * @Rest\Get("/v1/users/{id}/addresses")
-     * @Rest\View(serializerGroups={"address"})
+     * @Rfc1\View(dtoMapper="App\DtoMapper\AddressV1Mapper")
      *
      * @SWG\Tag(name="User")
      * @SWG\Parameter(name="id", in="path", type="integer", description="User id")
      * @SWG\Response(
      *     response=200,
      *     description="List of addresses of the user",
-     *     @SWG\Schema(type="array", @SWG\Items(ref=@Model(type=Address::class, groups={"address"})))
+     *     @SWG\Schema(type="array", @SWG\Items(ref=@Model(type="App\Dto\AddressV1")))
      * )
      *
      * @param User $user
@@ -198,7 +198,7 @@ class UserController extends FOSRestController
      * Returns the specific address for the given user.
      *
      * @Rest\Get("/v1/users/{id}/addresses/{type}")
-     * @Rest\View(serializerGroups={"address"})
+     * @Rfc1\View(dtoMapper="App\DtoMapper\AddressV1Mapper")
      *
      * @SWG\Tag(name="User")
      * @SWG\Parameter(name="id", in="path", type="integer", description="User id")
@@ -206,7 +206,7 @@ class UserController extends FOSRestController
      * @SWG\Response(
      *     response=200,
      *     description="Specific address of the user",
-     *     @Model(type=Address::class, groups={"address"})
+     *     @Model(type="App\Dto\AddressV1")
      * )
      *
      * @param User $user
@@ -229,7 +229,7 @@ class UserController extends FOSRestController
      * Creates a new user.
      *
      * @Rest\Post("/v1/users")
-     * @Rest\View(serializerGroups={"user"})
+     * @Rfc1\View(dtoMapper="App\DtoMapper\UserV1Mapper")
      *
      * @IsGranted("ROLE_ADMIN")
      *
@@ -239,7 +239,7 @@ class UserController extends FOSRestController
      * @SWG\Response(
      *     response=200,
      *     description="User",
-     *     @Model(type=User::class, groups={"user"})
+     *     @Model(type="App\Dto\UserV3")
      * )
      *
      * @param ConstraintViolationListInterface $validationErrors

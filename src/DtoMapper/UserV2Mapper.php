@@ -19,12 +19,12 @@ class UserV2Mapper implements MapperInterface
      */
     public function map($data)
     {
-            $userDto = new Dto\UserV2();
-            $userDto->setId($data->getId())
-                ->setUsername($data->getUsername())
-                ->setEmail($data->getEmail())
-                ->setForename($data->getForename())
-                ->setSurname($data->getSurname());
+        $userDto = new Dto\UserV2();
+        $userDto->setId($data->getId())
+            ->setUsername($data->getUsername())
+            ->setEmail($data->getEmail())
+            ->setForename($data->getForename())
+            ->setSurname($data->getSurname());
 
         return $userDto;
     }

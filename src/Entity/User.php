@@ -4,7 +4,6 @@ namespace App\Entity;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
-use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
  * Class User
@@ -20,8 +19,6 @@ class User {
     /**
      * @var int
      *
-     * @Groups({"user"})
-     *
      * @ORM\Column(name="user_id", type="integer", nullable=false, options={"unsigned"=true})
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
@@ -31,8 +28,6 @@ class User {
     /**
      * @var string
      *
-     * @Groups({"user"})
-     *
      * @ORM\Column(name="user_username", type="string", length=255)
      *
      * @Assert\NotBlank()
@@ -41,8 +36,6 @@ class User {
 
     /**
      * @var string
-     *
-     * @Groups({"user"})
      *
      * @ORM\Column(name="user_email", type="string", length=255)
      *
@@ -54,8 +47,6 @@ class User {
     /**
      * @var string
      *
-     * @Groups({"user"})
-     *
      * @ORM\Column(name="user_forename", type="string", length=255)
      *
      * @Assert\NotBlank()
@@ -64,8 +55,6 @@ class User {
 
     /**
      * @var string
-     *
-     * @Groups({"user"})
      *
      * @ORM\Column(name="user_surname", type="string", length=255)
      *
@@ -108,8 +97,6 @@ class User {
     /**
      * @var string
      *
-     * @Groups({"user"})
-     *
      * @ORM\Column(name="user_active", type="string", length=255, columnDefinition="ENUM('yes','no')")
      *
      * @Assert\NotBlank()
@@ -119,8 +106,6 @@ class User {
 
     /**
      * @var \DateTime
-     *
-     * @Groups({"user"})
      *
      * @ORM\Column(name="user_created", type="datetime")
      */

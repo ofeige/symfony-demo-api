@@ -22,7 +22,7 @@ fos_rest:
     format_listener:
         enabled: true
         rules:
-            - { path: ^/, prefer_extension: true, fallback_format: json, priorities: [ json, dto ] }
+            - { path: ^/, prefer_extension: true, fallback_format: json, priorities: [ json, dto, html ] }
     exception:
         codes:
             App\Exception\ValidationException: 400
@@ -30,7 +30,7 @@ fos_rest:
             Ofeige\Rfc14Bundle\Exception\SortException: 400
             Ofeige\Rfc14Bundle\Exception\PaginationException: 400
     service:
-        view_handler: ofeige.rfc1_bundle.view_handler
+        view_handler: app.view_handler
 
 sensio_framework_extra:
     request: { converters: true }

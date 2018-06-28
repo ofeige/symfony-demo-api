@@ -2,7 +2,6 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
  * Class Address
@@ -27,8 +26,6 @@ class Address {
     /**
      * @var string
      *
-     * @Groups({"address"})
-     * 
      * @ORM\Column(name="useraddress_type", type="string", columnDefinition="ENUM('billing','delivery')")
      */
     private $type;
@@ -36,16 +33,12 @@ class Address {
     /**
      * @var string
      *
-     * @Groups({"address"})
-     * 
      * @ORM\Column(name="useraddress_name", type="string", length=255)
      */
     private $name;
 
     /**
      * @var string
-     *
-     * @Groups({"address"})
      *
      * @ORM\Column(name="useraddress_street", type="string", length=255)
      */
@@ -54,8 +47,6 @@ class Address {
     /**
      * @var string
      *
-     * @Groups({"address"})
-     *
      * @ORM\Column(name="useraddress_zipcode", type="string", length=255)
      */
     private $zipCode;
@@ -63,16 +54,12 @@ class Address {
     /**
      * @var string
      *
-     * @Groups({"address"})
-     *
      * @ORM\Column(name="useraddress_city", type="string", length=255)
      */
     private $city;
 
     /**
      * @var string
-     *
-     * @Groups({"address"})
      *
      * @ORM\Column(name="useraddress_country", type="string", length=255)
      */
