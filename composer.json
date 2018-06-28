@@ -12,6 +12,7 @@
         "nelmio/api-doc-bundle": "^3.2",
         "ofeige/rfc1-bundle": "dev-master",
         "ofeige/rfc14-bundle": "dev-master",
+        "ofeige/symfony-demo-dto": "dev-master",
         "sensio/framework-extra-bundle": "^5.1",
         "symfony/asset": "^4.1",
         "symfony/console": "^4.1",
@@ -83,7 +84,10 @@
             "url": "git@github.com:ofeige/rfc14-bundle.git"
         },{
             "type": "vcs",
-            "url": "git@github.com:bywulf/rfc1-bundle.git"
+            "url": "git@github.com:ofeige/rfc1-bundle.git"
+        },{
+            "type": "vcs",
+            "url": "git@github.com:bywulf/symfony-demo-dto.git"
         }
     ]
 }

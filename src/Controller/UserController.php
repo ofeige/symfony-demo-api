@@ -48,7 +48,7 @@ class UserController extends FOSRestController
      * @SWG\Response(
      *     response=200,
      *     description="List of users matching the filter",
-     *     @SWG\Schema(type="array", @SWG\Items(ref=@Model(type="App\Dto\UserV1")))
+     *     @SWG\Schema(type="array", @SWG\Items(ref=@Model(type="Api\Dto\UserV1")))
      * )
      *
      * @param EntityManagerInterface $entityManager
@@ -86,7 +86,7 @@ class UserController extends FOSRestController
      * @SWG\Response(
      *     response=200,
      *     description="List of users matching the filter",
-     *     @SWG\Schema(type="array", @SWG\Items(ref=@Model(type="App\Dto\UserV2")))
+     *     @SWG\Schema(type="array", @SWG\Items(ref=@Model(type="Api\Dto\UserV2")))
      * )
      *
      * @param EntityManagerInterface $entityManager
@@ -124,7 +124,7 @@ class UserController extends FOSRestController
      * @SWG\Response(
      *     response=200,
      *     description="List of users matching the filter",
-     *     @SWG\Schema(type="array", @SWG\Items(ref=@Model(type="App\Dto\UserV3")))
+     *     @SWG\Schema(type="array", @SWG\Items(ref=@Model(type="Api\Dto\UserV3")))
      * )
      *
      * @param EntityManagerInterface $entityManager
@@ -154,7 +154,7 @@ class UserController extends FOSRestController
      * @SWG\Response(
      *     response=200,
      *     description="User",
-     *     @Model(type="App\Dto\UserV3")
+     *     @Model(type="Api\Dto\UserV3")
      * )
      *
      * @param User $user
@@ -177,7 +177,7 @@ class UserController extends FOSRestController
      * @SWG\Response(
      *     response=200,
      *     description="List of addresses of the user",
-     *     @SWG\Schema(type="array", @SWG\Items(ref=@Model(type="App\Dto\AddressV1")))
+     *     @SWG\Schema(type="array", @SWG\Items(ref=@Model(type="Api\Dto\AddressV1")))
      * )
      *
      * @param User $user
@@ -201,7 +201,7 @@ class UserController extends FOSRestController
      * @SWG\Response(
      *     response=200,
      *     description="Specific address of the user",
-     *     @Model(type="App\Dto\AddressV1")
+     *     @Model(type="Api\Dto\AddressV1")
      * )
      *
      * @param User $user
@@ -234,7 +234,7 @@ class UserController extends FOSRestController
      * @SWG\Response(
      *     response=200,
      *     description="User",
-     *     @Model(type="App\Dto\UserV3")
+     *     @Model(type="Api\Dto\UserV3")
      * )
      *
      * @param ConstraintViolationListInterface $validationErrors

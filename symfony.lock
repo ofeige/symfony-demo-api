@@ -116,6 +116,9 @@
     "ofeige/rfc14-bundle": {
         "version": "dev-master"
     },
+    "ofeige/symfony-demo-dto": {
+        "version": "dev-master"
+    },
     "phpdocumentor/reflection-common": {
         "version": "1.0.1"
     },

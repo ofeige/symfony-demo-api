@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c29c34a3452bd87c9949550f3be7aaf0",
+    "content-hash": "5dc29e7a7f610557e8af30bc593b24cf",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -1605,12 +1605,12 @@
             "version": "dev-master",
             "source": {
                 "type": "git",
-                "url": "https://github.com/byWulf/rfc1-bundle.git",
+                "url": "https://github.com/ofeige/rfc1-bundle.git",
                 "reference": "b729f9979fe2cb83bbed9b549f3cd514c740d1f7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/byWulf/rfc1-bundle/zipball/b729f9979fe2cb83bbed9b549f3cd514c740d1f7",
+                "url": "https://api.github.com/repos/ofeige/rfc1-bundle/zipball/b729f9979fe2cb83bbed9b549f3cd514c740d1f7",
                 "reference": "b729f9979fe2cb83bbed9b549f3cd514c740d1f7",
                 "shasum": ""
             },
@@ -1695,6 +1695,38 @@
                 "issues": "https://github.com/ofeige/rfc14-bundle/issues"
             },
             "time": "2018-06-28T11:46:11+00:00"
+        },
+        {
+            "name": "ofeige/symfony-demo-dto",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/byWulf/symfony-demo-dto.git",
+                "reference": "aee260e23e413ff63ce5025a7e4e17c4de9a5bc9"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/byWulf/symfony-demo-dto/zipball/aee260e23e413ff63ce5025a7e4e17c4de9a5bc9",
+                "reference": "aee260e23e413ff63ce5025a7e4e17c4de9a5bc9",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.1.3"
+            },
+            "type": "project",
+            "autoload": {
+                "psr-4": {
+                    "Api\\Dto\\": "Dto/"
+                }
+            },
+            "license": [
+                "proprietary"
+            ],
+            "support": {
+                "source": "https://github.com/byWulf/symfony-demo-dto/tree/master",
+                "issues": "https://github.com/byWulf/symfony-demo-dto/issues"
+            },
+            "time": "2018-06-28T15:36:50+00:00"
         },
         {
             "name": "phpdocumentor/reflection-common",
@@ -5229,6 +5261,7 @@
     "stability-flags": {
         "ofeige/rfc1-bundle": 20,
         "ofeige/rfc14-bundle": 20,
+        "ofeige/symfony-demo-dto": 20,
         "symfony/lts": 20
     },
     "prefer-stable": false,
