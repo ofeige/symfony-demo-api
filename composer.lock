@@ -1606,12 +1606,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/byWulf/rfc1-bundle.git",
-                "reference": "90a4a6294e7b73d0c39446e5b3120dc973e0d7d9"
+                "reference": "b729f9979fe2cb83bbed9b549f3cd514c740d1f7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/byWulf/rfc1-bundle/zipball/90a4a6294e7b73d0c39446e5b3120dc973e0d7d9",
-                "reference": "90a4a6294e7b73d0c39446e5b3120dc973e0d7d9",
+                "url": "https://api.github.com/repos/byWulf/rfc1-bundle/zipball/b729f9979fe2cb83bbed9b549f3cd514c740d1f7",
+                "reference": "b729f9979fe2cb83bbed9b549f3cd514c740d1f7",
                 "shasum": ""
             },
             "require": {
@@ -1645,7 +1645,7 @@
                 "source": "https://github.com/byWulf/rfc1-bundle/tree/master",
                 "issues": "https://github.com/byWulf/rfc1-bundle/issues"
             },
-            "time": "2018-06-28T09:22:26+00:00"
+            "time": "2018-06-28T11:20:15+00:00"
         },
         {
             "name": "ofeige/rfc14-bundle",
@@ -1653,12 +1653,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/ofeige/rfc14-bundle.git",
-                "reference": "64df8ddbd52a7d4a14a54e8f79f11f0b55b3db83"
+                "reference": "4e8c7b110f56c7bb14e8b0f2a82969c8a8959911"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ofeige/rfc14-bundle/zipball/64df8ddbd52a7d4a14a54e8f79f11f0b55b3db83",
-                "reference": "64df8ddbd52a7d4a14a54e8f79f11f0b55b3db83",
+                "url": "https://api.github.com/repos/ofeige/rfc14-bundle/zipball/4e8c7b110f56c7bb14e8b0f2a82969c8a8959911",
+                "reference": "4e8c7b110f56c7bb14e8b0f2a82969c8a8959911",
                 "shasum": ""
             },
             "require": {
@@ -1694,7 +1694,7 @@
                 "source": "https://github.com/ofeige/rfc14-bundle/tree/master",
                 "issues": "https://github.com/ofeige/rfc14-bundle/issues"
             },
-            "time": "2018-06-25T14:21:15+00:00"
+            "time": "2018-06-28T11:46:11+00:00"
         },
         {
             "name": "phpdocumentor/reflection-common",

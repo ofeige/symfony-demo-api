@@ -8,24 +8,23 @@ use Doctrine\ORM\OptimisticLockException;
 use Doctrine\ORM\ORMException;
 use Ofeige\Rfc14Bundle\Service\Filter;
 use Ofeige\Rfc14Bundle\Service\Pagination;
+use Ofeige\Rfc14Bundle\Service\Rfc14Service;
 use Ofeige\Rfc14Bundle\Service\Sort;
 
 class UserRepository extends EntityRepository
 {
     /**
-     * @param Filter $filter
-     * @param Sort $sort
-     * @param Pagination $pagination
+     * @param Rfc14Service $rfc14Service
      * @return User[]
+     * @throws \Doctrine\ORM\NonUniqueResultException
+     * @throws \Ofeige\Rfc14Bundle\Exception\PaginationException
      */
-    public function findByRfc14(Filter $filter, Sort $sort, Pagination $pagination): array
+    public function findByRfc14(Rfc14Service $rfc14Service): array
     {
         $qb = $this->createQueryBuilder('u');
         $qb->leftJoin('u.addresses', 'a')->distinct();
 
-        $filter->applyToQueryBuilder($qb);
-        $sort->applyToQueryBuilder($qb);
-        $pagination->applyToQueryBuilder($qb);
+        $rfc14Service->applyToQueryBuilder($qb);
 
         return $qb->getQuery()->getResult();
     }

@@ -12,9 +12,7 @@ use Doctrine\ORM\ORMException;
 use FOS\RestBundle\Controller\FOSRestController;
 use FOS\RestBundle\View\View;
 use Nelmio\ApiDocBundle\Annotation\Model;
-use Ofeige\Rfc14Bundle\Service\Filter;
-use Ofeige\Rfc14Bundle\Service\Pagination;
-use Ofeige\Rfc14Bundle\Service\Sort;
+use Ofeige\Rfc14Bundle\Service\Rfc14Service;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 use Symfony\Component\HttpFoundation\Response;
@@ -54,18 +52,17 @@ class UserController extends FOSRestController
      * )
      *
      * @param EntityManagerInterface $entityManager
-     * @param Filter $filter
-     * @param Sort $sort
-     * @param Pagination $pagination
-     *
+     * @param Rfc14Service $rfc14Service
      * @return User[]
+     * @throws \Doctrine\ORM\NonUniqueResultException
+     * @throws \Ofeige\Rfc14Bundle\Exception\PaginationException
      */
-    public function getUsersV1(EntityManagerInterface $entityManager, Filter $filter, Sort $sort, Pagination $pagination)
+    public function getUsersV1(EntityManagerInterface $entityManager, Rfc14Service $rfc14Service)
     {
         /** @var UserRepository $userRepository */
         $userRepository = $entityManager->getRepository(User::class);
 
-        $users = $userRepository->findByRfc14($filter, $sort, $pagination);
+        $users = $userRepository->findByRfc14($rfc14Service);
 
         return $users;
     }
@@ -93,18 +90,17 @@ class UserController extends FOSRestController
      * )
      *
      * @param EntityManagerInterface $entityManager
-     * @param Filter $filter
-     * @param Sort $sort
-     * @param Pagination $pagination
-     *
+     * @param Rfc14Service $rfc14Service
      * @return User[]
+     * @throws \Doctrine\ORM\NonUniqueResultException
+     * @throws \Ofeige\Rfc14Bundle\Exception\PaginationException
      */
-    public function getUsersV2(EntityManagerInterface $entityManager, Filter $filter, Sort $sort, Pagination $pagination)
+    public function getUsersV2(EntityManagerInterface $entityManager, Rfc14Service $rfc14Service)
     {
         /** @var UserRepository $userRepository */
         $userRepository = $entityManager->getRepository(User::class);
 
-        $users = $userRepository->findByRfc14($filter, $sort, $pagination);
+        $users = $userRepository->findByRfc14($rfc14Service);
 
         return $users;
     }
@@ -132,18 +128,17 @@ class UserController extends FOSRestController
      * )
      *
      * @param EntityManagerInterface $entityManager
-     * @param Filter $filter
-     * @param Sort $sort
-     * @param Pagination $pagination
-     *
+     * @param Rfc14Service $rfc14Service
      * @return User[]
+     * @throws \Doctrine\ORM\NonUniqueResultException
+     * @throws \Ofeige\Rfc14Bundle\Exception\PaginationException
      */
-    public function getUsersV3(EntityManagerInterface $entityManager, Filter $filter, Sort $sort, Pagination $pagination)
+    public function getUsersV3(EntityManagerInterface $entityManager, Rfc14Service $rfc14Service)
     {
         /** @var UserRepository $userRepository */
         $userRepository = $entityManager->getRepository(User::class);
 
-        $users = $userRepository->findByRfc14($filter, $sort, $pagination);
+        $users = $userRepository->findByRfc14($rfc14Service);
 
         return $users;
     }
