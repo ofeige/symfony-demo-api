@@ -7,6 +7,9 @@ fos_rest:
         view_response_listener: true
         formats:
             json: true
+            dto: true
+        mime_types:
+            dto: ['application/vnd.demo.dto']
     versioning: true
     access_denied_listener:
         enabled: true
@@ -19,13 +22,15 @@ fos_rest:
     format_listener:
         enabled: true
         rules:
-            - { path: ^/, prefer_extension: true, fallback_format: json, priorities: [ json ] }
+            - { path: ^/, prefer_extension: true, fallback_format: json, priorities: [ json, dto ] }
     exception:
         codes:
             App\Exception\ValidationException: 400
             Ofeige\Rfc14Bundle\Exception\FilterException: 400
             Ofeige\Rfc14Bundle\Exception\SortException: 400
             Ofeige\Rfc14Bundle\Exception\PaginationException: 400
+    service:
+        view_handler: ofeige.rfc1_bundle.view_handler
 
 sensio_framework_extra:
     request: { converters: true }

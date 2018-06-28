@@ -10,6 +10,7 @@
         "friendsofsymfony/rest-bundle": "^2.3",
         "lexik/jwt-authentication-bundle": "^2.4",
         "nelmio/api-doc-bundle": "^3.2",
+        "ofeige/rfc1-bundle": "dev-master",
         "ofeige/rfc14-bundle": "dev-master",
         "sensio/framework-extra-bundle": "^5.1",
         "symfony/asset": "^4.1",
@@ -80,6 +81,9 @@
         {
             "type": "vcs",
             "url": "git@github.com:ofeige/rfc14-bundle.git"
+        },{
+            "type": "vcs",
+            "url": "git@github.com:bywulf/rfc1-bundle.git"
         }
     ]
 }

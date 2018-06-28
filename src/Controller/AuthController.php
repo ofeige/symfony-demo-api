@@ -12,7 +12,7 @@ class AuthController extends FOSRestController
     /**
      * Authenticate with a valid user to get a JWT for later requests.
      *
-     * @Rest\Post("/login")
+     * @Rest\Post("/v1/login")
      * @Rest\View()
      *
      * @SWG\Tag(name="Login")

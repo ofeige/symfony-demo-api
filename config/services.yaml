@@ -27,9 +27,6 @@ services:
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
 
-    App\Describer\SimpleDescriber:
-        arguments:
-            - '@nelmio_api_doc.routes.default'
-            - '@nelmio_api_doc.controller_reflector'
-        tags:
-            - {name: 'nelmio_api_doc.route_describer', priority: -2000 }
+    App\DtoMapper\:
+        resource: '../src/DtoMapper'
+        public: true

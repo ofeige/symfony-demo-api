@@ -10,7 +10,6 @@ use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\ORM\OptimisticLockException;
 use Doctrine\ORM\ORMException;
 use FOS\RestBundle\Controller\FOSRestController;
-use FOS\RestBundle\Controller\Annotations as Rest;
 use FOS\RestBundle\View\View;
 use Nelmio\ApiDocBundle\Annotation\Model;
 use Ofeige\Rfc14Bundle\Service\Filter;
@@ -18,18 +17,25 @@ use Ofeige\Rfc14Bundle\Service\Pagination;
 use Ofeige\Rfc14Bundle\Service\Sort;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
-use Swagger\Annotations as SWG;
 use Symfony\Component\HttpFoundation\Response;
-use Ofeige\Rfc14Bundle\Annotation as Rfc14;
 use Symfony\Component\Validator\ConstraintViolationListInterface;
 
+use FOS\RestBundle\Controller\Annotations as Rest;
+use Swagger\Annotations as SWG;
+use Ofeige\Rfc14Bundle\Annotation as Rfc14;
+use Ofeige\Rfc1Bundle\Annotation as Rfc1;
+
+/**
+ * Class UserController
+ * @package App\Controller
+ */
 class UserController extends FOSRestController
 {
     /**
      * Returns the users in the system.
      *
-     * @Rest\Get("/users")
-     * @Rest\View(serializerGroups={"user"})
+     * @Rest\Get("/v1/users")
+     * @Rfc1\View(dtoMapper="App\DtoMapper\UserV1Mapper")
      *
      * @Rfc14\Filter(name="username")
      * @Rfc14\Filter(name="created")
@@ -44,7 +50,7 @@ class UserController extends FOSRestController
      * @SWG\Response(
      *     response=200,
      *     description="List of users matching the filter",
-     *     @SWG\Schema(type="array", @SWG\Items(ref=@Model(type=User::class, groups={"user"})))
+     *     @SWG\Schema(type="array", @SWG\Items(ref=@Model(type="App\Dto\UserV1")))
      * )
      *
      * @param EntityManagerInterface $entityManager
@@ -54,7 +60,85 @@ class UserController extends FOSRestController
      *
      * @return User[]
      */
-    public function getUsers(EntityManagerInterface $entityManager, Filter $filter, Sort $sort, Pagination $pagination)
+    public function getUsersV1(EntityManagerInterface $entityManager, Filter $filter, Sort $sort, Pagination $pagination)
+    {
+        /** @var UserRepository $userRepository */
+        $userRepository = $entityManager->getRepository(User::class);
+
+        $users = $userRepository->findByRfc14($filter, $sort, $pagination);
+
+        return $users;
+    }
+
+    /**
+     * Returns the users in the system.
+     *
+     * @Rest\Get("/v2/users")
+     * @Rfc1\View(dtoMapper="App\DtoMapper\UserV2Mapper")
+     *
+     * @Rfc14\Filter(name="username")
+     * @Rfc14\Filter(name="created")
+     * @Rfc14\Filter(name="country", queryBuilderName="a.country")
+     *
+     * @Rfc14\Sort(name="username")
+     * @Rfc14\Sort(name="zipcode", queryBuilderName="a.zipCode")
+     *
+     * @Rfc14\Pagination
+     *
+     * @SWG\Tag(name="User")
+     * @SWG\Response(
+     *     response=200,
+     *     description="List of users matching the filter",
+     *     @SWG\Schema(type="array", @SWG\Items(ref=@Model(type="App\Dto\UserV2")))
+     * )
+     *
+     * @param EntityManagerInterface $entityManager
+     * @param Filter $filter
+     * @param Sort $sort
+     * @param Pagination $pagination
+     *
+     * @return User[]
+     */
+    public function getUsersV2(EntityManagerInterface $entityManager, Filter $filter, Sort $sort, Pagination $pagination)
+    {
+        /** @var UserRepository $userRepository */
+        $userRepository = $entityManager->getRepository(User::class);
+
+        $users = $userRepository->findByRfc14($filter, $sort, $pagination);
+
+        return $users;
+    }
+
+    /**
+     * Returns the users in the system.
+     *
+     * @Rest\Get("/v3/users")
+     * @Rfc1\View(dtoMapper="App\DtoMapper\UserV3Mapper")
+     *
+     * @Rfc14\Filter(name="username")
+     * @Rfc14\Filter(name="created")
+     * @Rfc14\Filter(name="country", queryBuilderName="a.country")
+     *
+     * @Rfc14\Sort(name="username")
+     * @Rfc14\Sort(name="zipcode", queryBuilderName="a.zipCode")
+     *
+     * @Rfc14\Pagination
+     *
+     * @SWG\Tag(name="User")
+     * @SWG\Response(
+     *     response=200,
+     *     description="List of users matching the filter",
+     *     @SWG\Schema(type="array", @SWG\Items(ref=@Model(type="App\Dto\UserV3")))
+     * )
+     *
+     * @param EntityManagerInterface $entityManager
+     * @param Filter $filter
+     * @param Sort $sort
+     * @param Pagination $pagination
+     *
+     * @return User[]
+     */
+    public function getUsersV3(EntityManagerInterface $entityManager, Filter $filter, Sort $sort, Pagination $pagination)
     {
         /** @var UserRepository $userRepository */
         $userRepository = $entityManager->getRepository(User::class);
@@ -67,7 +151,7 @@ class UserController extends FOSRestController
     /**
      * Returns the user object for the given id.
      *
-     * @Rest\Get("/users/{id}")
+     * @Rest\Get("/v1/users/{id}")
      * @Rest\View(serializerGroups={"user"})
      *
      * @SWG\Tag(name="User")
@@ -90,7 +174,7 @@ class UserController extends FOSRestController
     /**
      * Returns all addresses for the given user.
      *
-     * @Rest\Get("/users/{id}/addresses")
+     * @Rest\Get("/v1/users/{id}/addresses")
      * @Rest\View(serializerGroups={"address"})
      *
      * @SWG\Tag(name="User")
@@ -113,7 +197,7 @@ class UserController extends FOSRestController
     /**
      * Returns the specific address for the given user.
      *
-     * @Rest\Get("/users/{id}/addresses/{type}")
+     * @Rest\Get("/v1/users/{id}/addresses/{type}")
      * @Rest\View(serializerGroups={"address"})
      *
      * @SWG\Tag(name="User")
@@ -144,7 +228,7 @@ class UserController extends FOSRestController
     /**
      * Creates a new user.
      *
-     * @Rest\Post("/users")
+     * @Rest\Post("/v1/users")
      * @Rest\View(serializerGroups={"user"})
      *
      * @IsGranted("ROLE_ADMIN")
