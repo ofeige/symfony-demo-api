@@ -82,6 +82,8 @@ class UserController extends FOSRestController
      *
      * @Rfc14\Pagination
      *
+     * @ParamConverter("users", class="rfc14.result", options={"entity"="App\Entity\User"})
+     *
      * @SWG\Tag(name="User")
      * @SWG\Response(
      *     response=200,
@@ -89,19 +91,11 @@ class UserController extends FOSRestController
      *     @SWG\Schema(type="array", @SWG\Items(ref=@Model(type="Api\Dto\UserV2")))
      * )
      *
-     * @param EntityManagerInterface $entityManager
-     * @param Rfc14Service $rfc14Service
+     * @param User[] $users
      * @return User[]
-     * @throws \Doctrine\ORM\NonUniqueResultException
-     * @throws \Ofeige\Rfc14Bundle\Exception\PaginationException
      */
-    public function getUsersV2(EntityManagerInterface $entityManager, Rfc14Service $rfc14Service)
+    public function getUsersV2(array $users)
     {
-        /** @var UserRepository $userRepository */
-        $userRepository = $entityManager->getRepository(User::class);
-
-        $users = $userRepository->findByRfc14($rfc14Service);
-
         return $users;
     }
 
@@ -120,6 +114,8 @@ class UserController extends FOSRestController
      *
      * @Rfc14\Pagination
      *
+     * @Rfc14\Result("users", entity="App\Entity\User")
+     *
      * @SWG\Tag(name="User")
      * @SWG\Response(
      *     response=200,
@@ -127,19 +123,11 @@ class UserController extends FOSRestController
      *     @SWG\Schema(type="array", @SWG\Items(ref=@Model(type="Api\Dto\UserV3")))
      * )
      *
-     * @param EntityManagerInterface $entityManager
-     * @param Rfc14Service $rfc14Service
+     * @param User[] $users
      * @return User[]
-     * @throws \Doctrine\ORM\NonUniqueResultException
-     * @throws \Ofeige\Rfc14Bundle\Exception\PaginationException
      */
-    public function getUsersV3(EntityManagerInterface $entityManager, Rfc14Service $rfc14Service)
+    public function getUsersV3(array $users)
     {
-        /** @var UserRepository $userRepository */
-        $userRepository = $entityManager->getRepository(User::class);
-
-        $users = $userRepository->findByRfc14($rfc14Service);
-
         return $users;
     }
 

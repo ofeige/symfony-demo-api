@@ -6,12 +6,10 @@ use App\Entity\User;
 use Doctrine\ORM\EntityRepository;
 use Doctrine\ORM\OptimisticLockException;
 use Doctrine\ORM\ORMException;
-use Ofeige\Rfc14Bundle\Service\Filter;
-use Ofeige\Rfc14Bundle\Service\Pagination;
+use Ofeige\Rfc14Bundle\Repository\Rfc14RepositoryInterface;
 use Ofeige\Rfc14Bundle\Service\Rfc14Service;
-use Ofeige\Rfc14Bundle\Service\Sort;
 
-class UserRepository extends EntityRepository
+class UserRepository extends EntityRepository implements Rfc14RepositoryInterface
 {
     /**
      * @param Rfc14Service $rfc14Service
