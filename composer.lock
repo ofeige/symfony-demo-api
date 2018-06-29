@@ -1653,12 +1653,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/ofeige/rfc14-bundle.git",
-                "reference": "d5e159e8dfa0130725c37b6390f580821ba38ff5"
+                "reference": "cad58f96fb0c4659ac538eebf6e3394249ce7000"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ofeige/rfc14-bundle/zipball/d5e159e8dfa0130725c37b6390f580821ba38ff5",
-                "reference": "d5e159e8dfa0130725c37b6390f580821ba38ff5",
+                "url": "https://api.github.com/repos/ofeige/rfc14-bundle/zipball/cad58f96fb0c4659ac538eebf6e3394249ce7000",
+                "reference": "cad58f96fb0c4659ac538eebf6e3394249ce7000",
                 "shasum": ""
             },
             "require": {
@@ -1692,7 +1692,7 @@
                 "source": "https://github.com/ofeige/rfc14-bundle/tree/master",
                 "issues": "https://github.com/ofeige/rfc14-bundle/issues"
             },
-            "time": "2018-06-29T09:48:18+00:00"
+            "time": "2018-06-29T12:26:31+00:00"
         },
         {
             "name": "ofeige/symfony-demo-dto",

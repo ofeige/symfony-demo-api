@@ -19,7 +19,7 @@ class DebugViewHandler
     public function createResponse(ViewHandler $handler, View $view, Request $request, $format)
     {
         ob_start();
-        dump($view->getData()['data']);
+        dump(is_array($view->getData()) ? $view->getData()['data'] : $view->getData());
         $content = ob_get_clean();
 
         return new Response($content, $view->getStatusCode() ?? 200);

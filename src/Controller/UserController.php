@@ -82,7 +82,7 @@ class UserController extends FOSRestController
      *
      * @Rfc14\Pagination
      *
-     * @ParamConverter("users", class="rfc14.result", options={"entity"="App\Entity\User"})
+     * @Rfc14\Result("users", entity="App\Entity\User")
      *
      * @SWG\Tag(name="User")
      * @SWG\Response(
