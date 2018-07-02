@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "5dc29e7a7f610557e8af30bc593b24cf",
+    "content-hash": "d507e66f402918e56d0a0a504daba084",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -1241,6 +1241,50 @@
             "time": "2014-01-12T16:20:24+00:00"
         },
         {
+            "name": "knpuniversity/lorem-ipsum-bundle",
+            "version": "v1.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/knpuniversity/lorem-ipsum-bundle.git",
+                "reference": "f05d32821046989eeecb36b0ed8079e8c0d5309b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/knpuniversity/lorem-ipsum-bundle/zipball/f05d32821046989eeecb36b0ed8079e8c0d5309b",
+                "reference": "f05d32821046989eeecb36b0ed8079e8c0d5309b",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.1.3",
+                "symfony/config": "^3.4 || ^4.0",
+                "symfony/dependency-injection": "^3.4 || ^4.0",
+                "symfony/http-kernel": "^3.4 || ^4.0"
+            },
+            "require-dev": {
+                "symfony/browser-kit": "^3.4 || ^4.0",
+                "symfony/framework-bundle": "^3.4 || ^4.0",
+                "symfony/phpunit-bridge": "^3.4 || ^4.0"
+            },
+            "type": "symfony-bundle",
+            "autoload": {
+                "psr-4": {
+                    "KnpU\\LoremIpsumBundle\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Ryan Weaver",
+                    "email": "ryan@knpuniversity.com"
+                }
+            ],
+            "description": "Happy lorem ipsum",
+            "time": "2018-03-22T12:23:34+00:00"
+        },
+        {
             "name": "lexik/jwt-authentication-bundle",
             "version": "v2.4.4",
             "source": {
@@ -1700,12 +1744,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/byWulf/symfony-demo-dto.git",
-                "reference": "aee260e23e413ff63ce5025a7e4e17c4de9a5bc9"
+                "reference": "bdac9adedcb758e2290e6d8953d491a16e7df1d9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/byWulf/symfony-demo-dto/zipball/aee260e23e413ff63ce5025a7e4e17c4de9a5bc9",
-                "reference": "aee260e23e413ff63ce5025a7e4e17c4de9a5bc9",
+                "url": "https://api.github.com/repos/byWulf/symfony-demo-dto/zipball/bdac9adedcb758e2290e6d8953d491a16e7df1d9",
+                "reference": "bdac9adedcb758e2290e6d8953d491a16e7df1d9",
                 "shasum": ""
             },
             "require": {
@@ -1724,7 +1768,7 @@
                 "source": "https://github.com/byWulf/symfony-demo-dto/tree/master",
                 "issues": "https://github.com/byWulf/symfony-demo-dto/issues"
             },
-            "time": "2018-06-28T15:36:50+00:00"
+            "time": "2018-07-02T10:38:23+00:00"
         },
         {
             "name": "phpdocumentor/reflection-common",

@@ -105,15 +105,6 @@ class UserController extends FOSRestController
      * @Rest\Get("/v3/users")
      * @Rfc1\View(dtoMapper="App\DtoMapper\UserV3Mapper")
      *
-     * @Rfc14\Filter(name="username")
-     * @Rfc14\Filter(name="created")
-     * @Rfc14\Filter(name="country", queryBuilderName="a.country")
-     *
-     * @Rfc14\Sort(name="username")
-     * @Rfc14\Sort(name="zipcode", queryBuilderName="a.zipCode")
-     *
-     * @Rfc14\Pagination
-     *
      * @Rfc14\Result("users", entity="App\Entity\User")
      *
      * @SWG\Tag(name="User")
@@ -127,6 +118,75 @@ class UserController extends FOSRestController
      * @return User[]
      */
     public function getUsersV3(array $users)
+    {
+        return $users;
+    }
+
+    /**
+     * Returns the users in the system.
+     *
+     * @Rest\Get("/v4/users")
+     * @Rfc1\View(dtoMapper="App\DtoMapper\UserV4Mapper")
+     *
+     * @Rfc14\Result("users", entity="App\Entity\User")
+     *
+     * @SWG\Tag(name="User")
+     * @SWG\Response(
+     *     response=200,
+     *     description="List of users matching the filter",
+     *     @SWG\Schema(type="array", @SWG\Items(ref=@Model(type="Api\Dto\UserV4")))
+     * )
+     *
+     * @param User[] $users
+     * @return User[]
+     */
+    public function getUsersV4(array $users)
+    {
+        return $users;
+    }
+
+    /**
+     * Returns the users in the system.
+     *
+     * @Rest\Get("/v5/users")
+     * @Rfc1\View(dtoMapper="App\DtoMapper\UserV5Mapper")
+     *
+     * @Rfc14\Result("users", entity="App\Entity\User")
+     *
+     * @SWG\Tag(name="User")
+     * @SWG\Response(
+     *     response=200,
+     *     description="List of users matching the filter",
+     *     @SWG\Schema(type="array", @SWG\Items(ref=@Model(type="Api\Dto\UserV5")))
+     * )
+     *
+     * @param User[] $users
+     * @return User[]
+     */
+    public function getUsersV5(array $users)
+    {
+        return $users;
+    }
+
+    /**
+     * Returns the users in the system.
+     *
+     * @Rest\Get("/v6/users")
+     * @Rfc1\View(dtoMapper="App\DtoMapper\UserV6Mapper")
+     *
+     * @Rfc14\Result("users", entity="App\Entity\User")
+     *
+     * @SWG\Tag(name="User")
+     * @SWG\Response(
+     *     response=200,
+     *     description="List of users matching the filter",
+     *     @SWG\Schema(type="array", @SWG\Items(ref=@Model(type="Api\Dto\UserV6")))
+     * )
+     *
+     * @param User[] $users
+     * @return User[]
+     */
+    public function getUsersV6(array $users)
     {
         return $users;
     }

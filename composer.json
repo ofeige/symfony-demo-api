@@ -8,6 +8,7 @@
         "doctrine/doctrine-fixtures-bundle": "^3.0",
         "doctrine/doctrine-migrations-bundle": "^1.3",
         "friendsofsymfony/rest-bundle": "^2.3",
+        "knpuniversity/lorem-ipsum-bundle": "^1.0",
         "lexik/jwt-authentication-bundle": "^2.4",
         "nelmio/api-doc-bundle": "^3.2",
         "ofeige/rfc1-bundle": "dev-master",

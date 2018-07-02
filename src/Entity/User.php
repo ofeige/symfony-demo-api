@@ -1,6 +1,7 @@
 <?php
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
@@ -111,9 +112,39 @@ class User {
      */
     private $created;
 
+    /**
+     * @var Article[]
+     *
+     * @ORM\OneToMany(targetEntity="App\Entity\Article", mappedBy="author")
+     */
+    private $articles = [];
+
+    /**
+     * @var User[]
+     *
+     * @ORM\ManyToMany(targetEntity="User", inversedBy="children")
+     * @ORM\JoinTable(name="user_parents",
+     *     joinColumns={@ORM\JoinColumn(name="user_id", referencedColumnName="user_id")},
+     *     inverseJoinColumns={@ORM\JoinColumn(name="parent_user_id", referencedColumnName="user_id")}
+     * )
+     */
+    private $parents = [];
+
+    /**
+     * @var User[]
+     *
+     * @ORM\ManyToMany(targetEntity="User", mappedBy="parents")
+     */
+    private $children = [];
+
     public function __construct()
     {
         $this->created = new \DateTime();
+
+        $this->addresses = new ArrayCollection();
+        $this->articles = new ArrayCollection();
+        $this->parents = new ArrayCollection();
+        $this->children = new ArrayCollection();
     }
 
     /**
@@ -324,4 +355,67 @@ class User {
         return $this;
     }
 
+    /**
+     * @return Article[]
+     */
+    public function getArticles(): Collection
+    {
+        return $this->articles;
+    }
+
+    /**
+     * @param Article[] $articles
+     * @return User
+     */
+    public function setArticles(Collection $articles): User
+    {
+        $this->articles = $articles;
+        return $this;
+    }
+
+    /**
+     * @return User[]
+     */
+    public function getParents(): Collection
+    {
+        return $this->parents;
+    }
+
+    /**
+     * @param User[] $parents
+     * @return User
+     */
+    public function setParents(Collection $parents): User
+    {
+        $this->parents = $parents;
+        return $this;
+    }
+
+    /**
+     * @param User $parent
+     * @return User
+     */
+    public function addParent(User $parent): User
+    {
+        $this->parents[] = $parent;
+        return $this;
+    }
+
+    /**
+     * @return User[]
+     */
+    public function getChildren(): Collection
+    {
+        return $this->children;
+    }
+
+    /**
+     * @param User[] $children
+     * @return User
+     */
+    public function setChildren(Collection $children): User
+    {
+        $this->children = $children;
+        return $this;
+    }
 }

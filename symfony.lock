@@ -83,6 +83,9 @@
     "jdorn/sql-formatter": {
         "version": "v1.2.17"
     },
+    "knpuniversity/lorem-ipsum-bundle": {
+        "version": "v1.0.1"
+    },
     "lexik/jwt-authentication-bundle": {
         "version": "2.3",
         "recipe": {
@@ -259,6 +262,9 @@
             "version": "4.0",
             "ref": "cda8b550123383d25827705d05a42acf6819fe4e"
         }
+    },
+    "symfony/security": {
+        "version": "v4.1.0"
     },
     "symfony/security-bundle": {
         "version": "3.3",
