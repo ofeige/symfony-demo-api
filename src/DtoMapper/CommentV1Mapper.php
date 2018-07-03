@@ -35,7 +35,7 @@ class CommentV1Mapper implements MapperInterface
      * @param Comment $data
      * @return CommentV1
      */
-    public function map($data)
+    public function map($data): CommentV1
     {
         $commentDto = new CommentV1();
 

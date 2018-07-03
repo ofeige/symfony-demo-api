@@ -17,7 +17,7 @@ class AddressV1Mapper implements MapperInterface
      * @param Address $data
      * @return Dto\AddressV1
      */
-    public function map($data)
+    public function map($data): Dto\AddressV1
     {
         $address = new Dto\AddressV1();
         $address->setType($data->getType())

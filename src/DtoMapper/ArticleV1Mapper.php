@@ -35,7 +35,7 @@ class ArticleV1Mapper implements MapperInterface
      * @param Article $data
      * @return ArticleV1
      */
-    public function map($data)
+    public function map($data): ArticleV1
     {
         $articleDto = new ArticleV1();
 

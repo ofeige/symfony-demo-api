@@ -16,7 +16,7 @@ class GroupV1Mapper implements MapperInterface
      * @param Group $data
      * @return GroupV1
      */
-    public function map($data)
+    public function map($data): GroupV1
     {
         $groupDto = new GroupV1();
 

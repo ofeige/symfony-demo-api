@@ -31,7 +31,7 @@ class UserV3Mapper implements MapperInterface
      * @param User $data
      * @return Dto\UserV3
      */
-    public function map($data)
+    public function map($data): Dto\UserV3
     {
         $userDto = new Dto\UserV3();
         $userDto->setId($data->getId())

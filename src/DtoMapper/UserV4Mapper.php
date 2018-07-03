@@ -31,7 +31,7 @@ class UserV4Mapper implements MapperInterface
      * @param User $data
      * @return Dto\UserV4
      */
-    public function map($data)
+    public function map($data): Dto\UserV4
     {
         $userDto = new Dto\UserV4();
         $userDto->setId($data->getId())

@@ -35,7 +35,7 @@ class ItemV1Mapper implements MapperInterface
      * @param Item $data
      * @return ItemV1
      */
-    public function map($data)
+    public function map($data): ItemV1
     {
         $itemDto = new ItemV1();
 

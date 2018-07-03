@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 
 namespace App\DtoMapper;
 
@@ -17,7 +18,7 @@ class UserV2Mapper implements MapperInterface
      * @param User $data
      * @return Dto\UserV2
      */
-    public function map($data)
+    public function map($data): Dto\UserV2
     {
         $userDto = new Dto\UserV2();
         $userDto->setId($data->getId())

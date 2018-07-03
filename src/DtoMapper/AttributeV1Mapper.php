@@ -16,7 +16,7 @@ class AttributeV1Mapper implements MapperInterface
      * @param Attribute $data
      * @return AttributeV1
      */
-    public function map($data)
+    public function map($data): AttributeV1
     {
         $attributeDto = new AttributeV1();
 
