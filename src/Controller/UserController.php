@@ -146,52 +146,6 @@ class UserController extends FOSRestController
     }
 
     /**
-     * Returns the users in the system.
-     *
-     * @Rest\Get("/v5/users")
-     * @Rfc1\View(dtoMapper="App\DtoMapper\UserV5Mapper")
-     *
-     * @Rfc14\Result("users", entity="App\Entity\User")
-     *
-     * @SWG\Tag(name="User")
-     * @SWG\Response(
-     *     response=200,
-     *     description="List of users matching the filter",
-     *     @SWG\Schema(type="array", @SWG\Items(ref=@Model(type="Api\Dto\UserV5")))
-     * )
-     *
-     * @param User[] $users
-     * @return User[]
-     */
-    public function getUsersV5(array $users)
-    {
-        return $users;
-    }
-
-    /**
-     * Returns the users in the system.
-     *
-     * @Rest\Get("/v6/users")
-     * @Rfc1\View(dtoMapper="App\DtoMapper\UserV6Mapper")
-     *
-     * @Rfc14\Result("users", entity="App\Entity\User")
-     *
-     * @SWG\Tag(name="User")
-     * @SWG\Response(
-     *     response=200,
-     *     description="List of users matching the filter",
-     *     @SWG\Schema(type="array", @SWG\Items(ref=@Model(type="Api\Dto\UserV6")))
-     * )
-     *
-     * @param User[] $users
-     * @return User[]
-     */
-    public function getUsersV6(array $users)
-    {
-        return $users;
-    }
-
-    /**
      * Returns the user object for the given id.
      *
      * @Rest\Get("/v1/users/{id}")
