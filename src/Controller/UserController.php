@@ -10,12 +10,10 @@ use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\ORM\OptimisticLockException;
 use Doctrine\ORM\ORMException;
 use FOS\RestBundle\Controller\FOSRestController;
-use FOS\RestBundle\View\View;
 use Nelmio\ApiDocBundle\Annotation\Model;
 use Ofeige\Rfc14Bundle\Service\Rfc14Service;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
-use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Validator\ConstraintViolationListInterface;
 
 use FOS\RestBundle\Controller\Annotations as Rest;
@@ -85,11 +83,6 @@ class UserController extends FOSRestController
      * @Rfc14\Result("users", entity="App\Entity\User")
      *
      * @SWG\Tag(name="User")
-     * @SWG\Response(
-     *     response=200,
-     *     description="List of users matching the filter",
-     *     @SWG\Schema(type="array", @SWG\Items(ref=@Model(type="Api\Dto\UserV2")))
-     * )
      *
      * @param User[] $users
      * @return User[]
@@ -108,39 +101,11 @@ class UserController extends FOSRestController
      * @Rfc14\Result("users", entity="App\Entity\User")
      *
      * @SWG\Tag(name="User")
-     * @SWG\Response(
-     *     response=200,
-     *     description="List of users matching the filter",
-     *     @SWG\Schema(type="array", @SWG\Items(ref=@Model(type="Api\Dto\UserV3")))
-     * )
      *
      * @param User[] $users
      * @return User[]
      */
     public function getUsersV3(array $users)
-    {
-        return $users;
-    }
-
-    /**
-     * Returns the users in the system.
-     *
-     * @Rest\Get("/v4/users")
-     * @Rfc1\View(dtoMapper="App\DtoMapper\UserV4Mapper")
-     *
-     * @Rfc14\Result("users", entity="App\Entity\User")
-     *
-     * @SWG\Tag(name="User")
-     * @SWG\Response(
-     *     response=200,
-     *     description="List of users matching the filter",
-     *     @SWG\Schema(type="array", @SWG\Items(ref=@Model(type="Api\Dto\UserV4")))
-     * )
-     *
-     * @param User[] $users
-     * @return User[]
-     */
-    public function getUsersV4(array $users)
     {
         return $users;
     }
@@ -153,11 +118,6 @@ class UserController extends FOSRestController
      *
      * @SWG\Tag(name="User")
      * @SWG\Parameter(name="id", in="path", type="integer", description="User id")
-     * @SWG\Response(
-     *     response=200,
-     *     description="User",
-     *     @Model(type="Api\Dto\UserV3")
-     * )
      *
      * @param User $user
      *
@@ -180,12 +140,6 @@ class UserController extends FOSRestController
      * @Rfc14\Result("addresses", entity="App\Entity\Address")
      *
      * @SWG\Tag(name="User")
-     * @SWG\Parameter(name="id", in="path", type="integer", description="User id")
-     * @SWG\Response(
-     *     response=200,
-     *     description="List of addresses of the user",
-     *     @SWG\Schema(type="array", @SWG\Items(ref=@Model(type="Api\Dto\AddressV1")))
-     * )
      *
      * @param Address[] $addresses
      * @return Address[]
@@ -206,11 +160,6 @@ class UserController extends FOSRestController
      * @ParamConverter("user", converter="fos_rest.request_body")
      *
      * @SWG\Tag(name="User")
-     * @SWG\Response(
-     *     response=200,
-     *     description="User",
-     *     @Model(type="Api\Dto\UserV3")
-     * )
      *
      * @param ConstraintViolationListInterface $validationErrors
      * @param User $user

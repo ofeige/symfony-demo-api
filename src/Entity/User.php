@@ -111,14 +111,6 @@ class User {
      * @ORM\Column(name="user_created", type="datetime")
      */
     private $created;
-
-    /**
-     * @var Article[]
-     *
-     * @ORM\OneToMany(targetEntity="App\Entity\Article", mappedBy="author")
-     */
-    private $articles = [];
-
     /**
      * @var User[]
      *
@@ -142,7 +134,6 @@ class User {
         $this->created = new \DateTime();
 
         $this->addresses = new ArrayCollection();
-        $this->articles = new ArrayCollection();
         $this->parents = new ArrayCollection();
         $this->children = new ArrayCollection();
     }
@@ -352,24 +343,6 @@ class User {
     public function setPlainPassword(string $plainPassword): User
     {
         $this->plainPassword = $plainPassword;
-        return $this;
-    }
-
-    /**
-     * @return Article[]
-     */
-    public function getArticles(): Collection
-    {
-        return $this->articles;
-    }
-
-    /**
-     * @param Article[] $articles
-     * @return User
-     */
-    public function setArticles(Collection $articles): User
-    {
-        $this->articles = $articles;
         return $this;
     }
 
