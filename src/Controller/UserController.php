@@ -174,6 +174,11 @@ class UserController extends FOSRestController
      * @Rest\Get("/v1/users/{id}/addresses")
      * @Rfc1\View(dtoMapper="App\DtoMapper\AddressV1Mapper")
      *
+     * @Rfc14\Filter(name="id", queryBuilderName="u.id")
+     * @Rfc14\Filter(name="type")
+     *
+     * @Rfc14\Result("addresses", entity="App\Entity\Address")
+     *
      * @SWG\Tag(name="User")
      * @SWG\Parameter(name="id", in="path", type="integer", description="User id")
      * @SWG\Response(
@@ -182,44 +187,12 @@ class UserController extends FOSRestController
      *     @SWG\Schema(type="array", @SWG\Items(ref=@Model(type="Api\Dto\AddressV1")))
      * )
      *
-     * @param User $user
-     *
+     * @param Address[] $addresses
      * @return Address[]
      */
-    public function getAddresses(User $user)
+    public function getAddresses(array $addresses)
     {
-        return $user->getAddresses();
-    }
-
-    /**
-     * Returns the specific address for the given user.
-     *
-     * @Rest\Get("/v1/users/{id}/addresses/{type}")
-     * @Rfc1\View(dtoMapper="App\DtoMapper\AddressV1Mapper")
-     *
-     * @SWG\Tag(name="User")
-     * @SWG\Parameter(name="id", in="path", type="integer", description="User id")
-     * @SWG\Parameter(name="type", in="path", type="string", enum={"delivery","billing"}, description="Type of the address")
-     * @SWG\Response(
-     *     response=200,
-     *     description="Specific address of the user",
-     *     @Model(type="Api\Dto\AddressV1")
-     * )
-     *
-     * @param User $user
-     * @param string $type
-     *
-     * @return Address|View
-     */
-    public function getAddressByType(User $user, string $type)
-    {
-        foreach ($user->getAddresses() as $address) {
-            if ($address->getType() === $type) {
-                return $address;
-            }
-        }
-
-        return $this->view('No matching address found.', Response::HTTP_NOT_FOUND);
+        return $addresses;
     }
 
     /**

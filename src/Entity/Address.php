@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @package App\Entity
  *
  * @ORM\Table(name="useraddress")
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="App\Repository\AddressRepository")
  */
 class Address {
     const TYPE_BILLING = 'billing';
