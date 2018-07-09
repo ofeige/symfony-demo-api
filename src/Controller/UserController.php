@@ -20,6 +20,7 @@ use FOS\RestBundle\Controller\Annotations as Rest;
 use Swagger\Annotations as SWG;
 use Ofeige\Rfc14Bundle\Annotation as Rfc14;
 use Ofeige\Rfc1Bundle\Annotation as Rfc1;
+use Ofeige\ApiBundle\Annotation as Api;
 
 /**
  * Class UserController
@@ -41,6 +42,8 @@ class UserController extends FOSRestController
      * @Rfc14\Sort(name="zipcode", queryBuilderName="a.zipCode")
      *
      * @Rfc14\Pagination
+     *
+     * @Api\Deprecated(until="2018-08-09")
      *
      * @SWG\Tag(name="User")
      * @SWG\Response(
@@ -81,6 +84,8 @@ class UserController extends FOSRestController
      * @Rfc14\Pagination
      *
      * @Rfc14\Result("users", entity="App\Entity\User")
+     *
+     * @Api\Deprecated(until="2018-10-09")
      *
      * @SWG\Tag(name="User")
      *

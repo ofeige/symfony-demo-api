@@ -113,6 +113,9 @@
     "ocramius/proxy-manager": {
         "version": "2.2.0"
     },
+    "ofeige/api-bundle": {
+        "version": "dev-master"
+    },
     "ofeige/rfc1-bundle": {
         "version": "dev-master"
     },

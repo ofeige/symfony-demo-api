@@ -11,10 +11,11 @@
         "knpuniversity/lorem-ipsum-bundle": "^1.0",
         "lexik/jwt-authentication-bundle": "^2.4",
         "nelmio/api-doc-bundle": "^3.2",
+        "ofeige/api-bundle": "dev-master",
         "ofeige/rfc1-bundle": "dev-master",
         "ofeige/rfc14-bundle": "dev-master",
         "ofeige/symfony-demo-dto": "dev-master",
-        "sensio/framework-extra-bundle": "^5.1",
+        "sensio/framework-extra-bundle": "^5.2",
         "symfony/asset": "^4.1",
         "symfony/console": "^4.1",
         "symfony/expression-language": "^4.1",
@@ -89,6 +90,9 @@
         },{
             "type": "vcs",
             "url": "git@github.com:bywulf/symfony-demo-dto.git"
+        },{
+            "type": "vcs",
+            "url": "git@github.com:bywulf/api-bundle.git"
         }
     ]
 }
