@@ -41,7 +41,7 @@ class UserV4Mapper implements MapperInterface
             ->setSurname($data->getSurname());
 
         foreach ($data->getAddresses() as $address) {
-            $userDto->getAddresses()->addAddress($this->addressMapper->map($address));
+            $userDto->getAddressCollection()->addAddress($this->addressMapper->map($address));
         }
 
         return $userDto;
