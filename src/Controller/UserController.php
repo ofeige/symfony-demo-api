@@ -58,7 +58,7 @@ class UserController extends FOSRestController
      * @throws \Doctrine\ORM\NonUniqueResultException
      * @throws \Ofeige\Rfc14Bundle\Exception\PaginationException
      */
-    public function getUsersV1(EntityManagerInterface $entityManager, Rfc14Service $rfc14Service)
+    public function getUsersV1(EntityManagerInterface $entityManager, Rfc14Service $rfc14Service): array
     {
         /** @var UserRepository $userRepository */
         $userRepository = $entityManager->getRepository(User::class);
@@ -92,7 +92,7 @@ class UserController extends FOSRestController
      * @param User[] $users
      * @return User[]
      */
-    public function getUsersV2(array $users)
+    public function getUsersV2(array $users): array
     {
         return $users;
     }
@@ -110,7 +110,7 @@ class UserController extends FOSRestController
      * @param User[] $users
      * @return User[]
      */
-    public function getUsersV3(array $users)
+    public function getUsersV3(array $users): array
     {
         return $users;
     }
@@ -128,7 +128,7 @@ class UserController extends FOSRestController
      *
      * @return User
      */
-    public function getUserById(User $user)
+    public function getUserById(User $user): User
     {
         return $user;
     }
@@ -149,7 +149,7 @@ class UserController extends FOSRestController
      * @param Address[] $addresses
      * @return Address[]
      */
-    public function getAddresses(array $addresses)
+    public function getAddresses(array $addresses): array
     {
         return $addresses;
     }
@@ -174,7 +174,7 @@ class UserController extends FOSRestController
      * @throws ORMException
      * @throws OptimisticLockException
      */
-    public function postUser(ConstraintViolationListInterface $validationErrors, User $user)
+    public function postUser(ConstraintViolationListInterface $validationErrors, User $user): User
     {
         if (count($validationErrors) > 0) {
             throw new ValidationException($validationErrors);

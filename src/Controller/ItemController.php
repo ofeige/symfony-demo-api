@@ -33,7 +33,7 @@ class ItemController
      * @param Item[] $items
      * @return Item[]
      */
-    public function itemsV1(array $items)
+    public function itemsV1(array $items): array
     {
         return $items;
     }
