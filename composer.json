@@ -89,10 +89,10 @@
             "url": "git@github.com:ofeige/rfc1-bundle.git"
         },{
             "type": "vcs",
-            "url": "git@github.com:bywulf/symfony-demo-dto.git"
+            "url": "git@github.com:ofeige/symfony-demo-dto.git"
         },{
             "type": "vcs",
-            "url": "git@github.com:bywulf/api-bundle.git"
+            "url": "git@github.com:ofeige/api-bundle.git"
         }
     ]
 }
