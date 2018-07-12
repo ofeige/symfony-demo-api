@@ -14,6 +14,7 @@
         "ofeige/api-bundle": "dev-master",
         "ofeige/rfc1-bundle": "dev-master",
         "ofeige/rfc14-bundle": "dev-master",
+        "ofeige/rfc18-bundle": "dev-master",
         "ofeige/symfony-demo-dto": "dev-master",
         "sensio/framework-extra-bundle": "^5.2",
         "symfony/asset": "^4.1",
@@ -87,6 +88,9 @@
         },{
             "type": "vcs",
             "url": "git@github.com:ofeige/rfc1-bundle.git"
+        },{
+            "type": "vcs",
+            "url": "git@github.com:bywulf/rfc18-bundle.git"
         },{
             "type": "vcs",
             "url": "git@github.com:ofeige/symfony-demo-dto.git"

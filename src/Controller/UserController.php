@@ -20,7 +20,7 @@ use FOS\RestBundle\Controller\Annotations as Rest;
 use Swagger\Annotations as SWG;
 use Ofeige\Rfc14Bundle\Annotation as Rfc14;
 use Ofeige\Rfc1Bundle\Annotation as Rfc1;
-use Ofeige\ApiBundle\Annotation as Api;
+use Ofeige\Rfc18Bundle\Annotation as Rfc18;
 
 /**
  * Class UserController
@@ -43,7 +43,7 @@ class UserController extends FOSRestController
      *
      * @Rfc14\Pagination
      *
-     * @Api\Deprecated(hideInDoc=true)
+     * @Rfc18\Deprecated(hideInDoc=true)
      *
      * @SWG\Tag(name="User")
      * @SWG\Response(
@@ -85,7 +85,7 @@ class UserController extends FOSRestController
      *
      * @Rfc14\Result("users", entity="App\Entity\User")
      *
-     * @Api\Deprecated(until="2018-10-09")
+     * @Rfc18\Deprecated(removedAfter="2018-10-09")
      *
      * @SWG\Tag(name="User")
      *

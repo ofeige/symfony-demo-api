@@ -20,7 +20,7 @@ class UserRepository extends EntityRepository implements Rfc14RepositoryInterfac
     public function findByRfc14(Rfc14Service $rfc14Service): array
     {
         $qb = $this->createQueryBuilder('u');
-        $qb->leftJoin('u.addresses', 'a')->distinct();
+        $qb->leftJoin('u.addresses', 'a');
 
         $rfc14Service->applyToQueryBuilder($qb);
 

@@ -17,4 +17,5 @@ return [
     KnpU\LoremIpsumBundle\KnpULoremIpsumBundle::class => ['all' => true],
     Ofeige\ApiBundle\OfeigeApiBundle::class => ['all' => true],
     Ofeige\Rfc14Bundle\OfeigeRfc14Bundle::class => ['all' => true],
+    Ofeige\Rfc18Bundle\OfeigeRfc18Bundle::class => ['all' => true],
 ];
