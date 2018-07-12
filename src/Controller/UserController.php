@@ -43,7 +43,7 @@ class UserController extends FOSRestController
      *
      * @Rfc14\Pagination
      *
-     * @Api\Deprecated(until="2018-08-09")
+     * @Api\Deprecated(hideInDoc=true)
      *
      * @SWG\Tag(name="User")
      * @SWG\Response(
