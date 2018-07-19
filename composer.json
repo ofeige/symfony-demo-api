@@ -84,19 +84,19 @@
     "repositories": [
         {
             "type": "vcs",
-            "url": "git@github.com:ofeige/rfc14-bundle.git"
+            "url": "git@github.com:CHECK24/rfc14-bundle.git"
         },{
             "type": "vcs",
-            "url": "git@github.com:ofeige/rfc1-bundle.git"
+            "url": "git@github.com:CHECK24/rfc1-bundle.git"
         },{
             "type": "vcs",
-            "url": "git@github.com:bywulf/rfc18-bundle.git"
+            "url": "git@github.com:CHECK24/rfc18-bundle.git"
         },{
             "type": "vcs",
             "url": "git@github.com:ofeige/symfony-demo-dto.git"
         },{
             "type": "vcs",
-            "url": "git@github.com:ofeige/api-bundle.git"
+            "url": "git@github.com:CHECK24/api-bundle.git"
         }
     ]
 }
