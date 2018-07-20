@@ -11,16 +11,16 @@ use Doctrine\ORM\OptimisticLockException;
 use Doctrine\ORM\ORMException;
 use FOS\RestBundle\Controller\FOSRestController;
 use Nelmio\ApiDocBundle\Annotation\Model;
-use Ofeige\Rfc14Bundle\Service\Rfc14Service;
+use Shopping\ApiFilterBundle\Service\Rfc14Service;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 use Symfony\Component\Validator\ConstraintViolationListInterface;
 
 use FOS\RestBundle\Controller\Annotations as Rest;
 use Swagger\Annotations as SWG;
-use Ofeige\Rfc14Bundle\Annotation as Rfc14;
-use Ofeige\Rfc1Bundle\Annotation as Rfc1;
-use Ofeige\Rfc18Bundle\Annotation as Rfc18;
+use Shopping\ApiFilterBundle\Annotation as Rfc14;
+use Shopping\ApiDtoMapperBundle\Annotation as Rfc1;
+use Shopping\ApiDeprecationBundle\Annotation as Rfc18;
 
 /**
  * Class UserController
@@ -56,7 +56,7 @@ class UserController extends FOSRestController
      * @param Rfc14Service $rfc14Service
      * @return User[]
      * @throws \Doctrine\ORM\NonUniqueResultException
-     * @throws \Ofeige\Rfc14Bundle\Exception\PaginationException
+     * @throws \Shopping\ApiFilterBundle\Exception\PaginationException
      */
     public function getUsersV1(EntityManagerInterface $entityManager, Rfc14Service $rfc14Service): array
     {

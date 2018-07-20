@@ -4,7 +4,7 @@ declare(strict_types=1);
 namespace App\DtoMapper;
 use Api\Dto\GroupV1;
 use App\Entity\Group;
-use Ofeige\Rfc1Bundle\DtoMapper\MapperInterface;
+use Shopping\ApiDtoMapperBundle\DtoMapper\MapperInterface;
 
 /**
  * Class GroupV1Mapper

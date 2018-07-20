@@ -113,18 +113,6 @@
     "ocramius/proxy-manager": {
         "version": "2.2.0"
     },
-    "ofeige/api-bundle": {
-        "version": "dev-master"
-    },
-    "ofeige/rfc1-bundle": {
-        "version": "dev-master"
-    },
-    "ofeige/rfc14-bundle": {
-        "version": "dev-master"
-    },
-    "ofeige/rfc18-bundle": {
-        "version": "dev-master"
-    },
     "ofeige/symfony-demo-dto": {
         "version": "dev-master"
     },
@@ -157,6 +145,18 @@
             "version": "4.0",
             "ref": "aaddfdf43cdecd4cf91f992052d76c2cadc04543"
         }
+    },
+    "shopping/api-deprecation-bundle": {
+        "version": "dev-master"
+    },
+    "shopping/api-dto-mapper-bundle": {
+        "version": "dev-master"
+    },
+    "shopping/api-filter-bundle": {
+        "version": "dev-master"
+    },
+    "shopping/api-helper-bundle": {
+        "version": "dev-master"
     },
     "symfony/asset": {
         "version": "v4.1.0"

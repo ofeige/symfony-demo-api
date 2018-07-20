@@ -5,7 +5,7 @@ namespace App\DtoMapper;
 use App\Entity\Address;
 
 use Api\Dto as Dto;
-use Ofeige\Rfc1Bundle\DtoMapper\MapperInterface;
+use Shopping\ApiDtoMapperBundle\DtoMapper\MapperInterface;
 
 /**
  * Class AddressV1Mapper

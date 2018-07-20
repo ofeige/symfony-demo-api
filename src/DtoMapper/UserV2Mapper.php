@@ -6,7 +6,7 @@ namespace App\DtoMapper;
 use App\Entity\User;
 
 use Api\Dto as Dto;
-use Ofeige\Rfc1Bundle\DtoMapper\MapperInterface;
+use Shopping\ApiDtoMapperBundle\DtoMapper\MapperInterface;
 
 /**
  * Class UserV2Mapper

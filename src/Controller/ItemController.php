@@ -6,8 +6,8 @@ use App\Entity\Item;
 
 use FOS\RestBundle\Controller\Annotations as Rest;
 use Swagger\Annotations as SWG;
-use Ofeige\Rfc14Bundle\Annotation as Rfc14;
-use Ofeige\Rfc1Bundle\Annotation as Rfc1;
+use Shopping\ApiFilterBundle\Annotation as Rfc14;
+use Shopping\ApiDtoMapperBundle\Annotation as Rfc1;
 
 /**
  * Class ItemController

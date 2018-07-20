@@ -19,7 +19,7 @@ doctrine:
     orm:
         auto_generate_proxy_classes: '%kernel.debug%'
         naming_strategy: doctrine.orm.naming_strategy.underscore
-        default_repository_class: Ofeige\Rfc14Bundle\Repository\Rfc14Repository
+        default_repository_class: Shopping\ApiFilterBundle\Repository\Rfc14Repository
         auto_mapping: true
         mappings:
             App:

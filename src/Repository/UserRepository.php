@@ -6,8 +6,8 @@ use App\Entity\User;
 use Doctrine\ORM\EntityRepository;
 use Doctrine\ORM\OptimisticLockException;
 use Doctrine\ORM\ORMException;
-use Ofeige\Rfc14Bundle\Repository\Rfc14RepositoryInterface;
-use Ofeige\Rfc14Bundle\Service\Rfc14Service;
+use Shopping\ApiFilterBundle\Repository\Rfc14RepositoryInterface;
+use Shopping\ApiFilterBundle\Service\Rfc14Service;
 
 class UserRepository extends EntityRepository implements Rfc14RepositoryInterface
 {
@@ -15,7 +15,7 @@ class UserRepository extends EntityRepository implements Rfc14RepositoryInterfac
      * @param Rfc14Service $rfc14Service
      * @return User[]
      * @throws \Doctrine\ORM\NonUniqueResultException
-     * @throws \Ofeige\Rfc14Bundle\Exception\PaginationException
+     * @throws \Shopping\ApiFilterBundle\Exception\PaginationException
      */
     public function findByRfc14(Rfc14Service $rfc14Service): array
     {
