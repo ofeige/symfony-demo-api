@@ -6,7 +6,8 @@ php:
 
 before_install:
   - pear config-set preferred_state beta
-  - yes '' | pecl install apcu
+  - yes '' | pecl install apcu 2> /dev/null
 
 install:
-  - composer install
+  - if [[ `php -r 'echo version_compare(PHP_VERSION, "7.2.0") < 0?"1":"0";'` ]]; then composer update; fi
+  - if [[ `php -r 'echo version_compare(PHP_VERSION, "7.2.0") > 0?"1":"0";'` ]]; then composer install; fi
