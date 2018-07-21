@@ -11,3 +11,6 @@ before_install:
 install:
   - if [[ `php -r 'echo version_compare(PHP_VERSION, "7.2.0") < 0?"1":"0";'` ]]; then composer update ; fi
   - if [[ `php -r 'echo version_compare(PHP_VERSION, "7.2.0") > 0?"1":"0";'` ]]; then composer install ; fi
+
+script:
+  - bin/console cache:clear
