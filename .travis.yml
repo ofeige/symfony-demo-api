@@ -4,5 +4,9 @@ php:
   - '7.2'
   - nightly
 
+before_install:
+  - pear config-set preferred_state beta
+  - yes '' | pecl install apcu
+
 install:
   - composer install
