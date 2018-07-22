@@ -6,7 +6,7 @@ php:
 
 before_install:
   - pear config-set preferred_state beta
-  - if [ ! `php -m | grep apcu | wc -l` -gt 0 ]; then yes '' | pecl install apcu ; sleep 0; fi
+  - if [ ! `php -m | grep apcu | wc -l` -gt 0 ]; then yes '' | pecl install apcu ; sudo bash -c "echo extension=apcu.so > `php -i | grep 'Loaded Configuration File' | sed -r 's/^.* => (.*)$/\1/'`" ; sleep 0; fi
 
 install:
   - if [ `php -r 'echo version_compare(PHP_VERSION, "7.2.0") < 0?"1":"0";'` -gt 0 ]; then composer update ; fi
