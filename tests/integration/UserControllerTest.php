@@ -33,7 +33,7 @@ class UserControllerTest extends WebTestCase
 
     public function testGetV1UserReturnsJson(): void
     {
-        $this->markTestSkipped('Not possible yet');
+        $this->markTestIncomplete('Not possible yet');
 
         $this->client->request('GET', '/api/v3/users',[],[],['Accept' => 'application/json']);
 
@@ -50,7 +50,7 @@ class UserControllerTest extends WebTestCase
 
     public function testGetV1UserIncludesUserArthasMenethil(): void
     {
-        $this->markTestSkipped('Not possible yet');
+        $this->markTestIncomplete('Not possible yet');
         $this->client->request('GET', '/api/v3/users',[],[],['Accept' => 'application/json']);
 
         $expected = (new UserV1())->setId(4)->setEmail('Arthas.Menethil@demo.test')->setUsername('Arthas Menethil');
