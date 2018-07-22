@@ -1,6 +1,5 @@
 language: php
 php:
-#  - '7.0'
   - '7.1'
   - '7.2'
 #  - nightly # breaks because of doctrine warning
@@ -13,5 +12,16 @@ install:
   - if [ `php -r 'echo version_compare(PHP_VERSION, "7.2.0") < 0?"1":"0";'` -gt 0 ]; then composer update ; fi
   - if [ `php -r 'echo version_compare(PHP_VERSION, "7.2.0") > 0?"1":"0";'` -gt 0 ]; then composer install ; fi
 
+before_script:
+  - bin/console --env=test doctrine:database:create
+  - bin/console --env=test doctrine:migrations:migrate -n
+  - bin/console --env=test doctrine:fixtures:load -n
+  - mkdir config/jwt
+  - openssl genrsa -out config/jwt/private.pem -aes256 4096
+  - openssl rsa -pubout -in config/jwt/private.pem -out config/jwt/public.pem
+
 script:
-  - bin/console cache:clear
+  - vendor/bin/phpunit --coverage-clover=coverage.xml
+
+after_success:
+  - bash <(curl -s https://codecov.io/bash)
