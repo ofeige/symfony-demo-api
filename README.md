@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/dpeuscher/symfony-demo-api.svg?branch=master)](https://travis-ci.org/dpeuscher/symfony-demo-api)
+[![Build Status](https://travis-ci.org/dpeuscher/symfony-demo-api.svg?branch=master)](https://travis-ci.org/dpeuscher/symfony-demo-api) [![codecov](https://codecov.io/gh/dpeuscher/symfony-demo-api/branch/master/graph/badge.svg)](https://codecov.io/gh/dpeuscher/symfony-demo-api)
 
 # symfony-demo-api
 Symfony Demo Project for REST API including DTO, Mapper, unified rest url handling  
