@@ -17,7 +17,7 @@ before_script:
   - bin/console --env=test doctrine:migrations:migrate -n
   - bin/console --env=test doctrine:fixtures:load -n
   - mkdir config/jwt
-  - openssl genrsa -out config/jwt/private.pem -aes256 4096
+  - openssl genrsa -passout pass:test -out config/jwt/private.pem -aes256 4096
   - openssl rsa -pubout -in config/jwt/private.pem -out config/jwt/public.pem
 
 script:
