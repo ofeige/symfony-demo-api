@@ -22,7 +22,7 @@ before_script:
   - cp phpunit.xml.dist phpunit.xml
 
 script:
-  - bin/phpunit --coverage-clover=coverage.xml
+  - SYMFONY_DEPRECATIONS_HELPER='/^UserControllerTest::testHasRouteGetV1User$/' bin/phpunit --coverage-clover=coverage.xml
 
 after_success:
   - bash <(curl -s https://codecov.io/bash)
