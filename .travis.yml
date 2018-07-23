@@ -1,0 +1,28 @@
+language: php
+php:
+  - '7.1'
+  - '7.2'
+#  - nightly # breaks because of doctrine warning
+
+before_install:
+  - pear config-set preferred_state beta
+  - if [ ! `php -m | grep apcu | wc -l` -gt 0 ]; then yes '' | pecl install apcu ; sudo bash -c "echo extension=apcu.so > `php -i | grep 'Loaded Configuration File' | sed -r 's/^.* => (.*)$/\1/'`" ; sleep 0; fi
+
+install:
+  - if [ `php -r 'echo version_compare(PHP_VERSION, "7.2.0") < 0?"1":"0";'` -gt 0 ]; then composer update ; fi
+  - if [ `php -r 'echo version_compare(PHP_VERSION, "7.2.0") > 0?"1":"0";'` -gt 0 ]; then composer install ; fi
+
+before_script:
+  - bin/console --env=test doctrine:database:create
+  - bin/console --env=test doctrine:migrations:migrate -n
+  - bin/console --env=test doctrine:fixtures:load -n
+  - mkdir config/jwt
+  - openssl genrsa -passout pass:test -out config/jwt/private.pem -aes256 4096
+  - openssl rsa -passin pass:test -pubout -in config/jwt/private.pem -passout pass:test -out config/jwt/public.pem
+  - cp phpunit.xml.dist phpunit.xml
+
+script:
+  - SYMFONY_DEPRECATIONS_HELPER='/^UserControllerTest::testHasRouteGetV1User$/' bin/phpunit --coverage-clover=coverage.xml
+
+after_success:
+  - bash <(curl -s https://codecov.io/bash)
