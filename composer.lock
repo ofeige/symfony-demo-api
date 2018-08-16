@@ -2390,16 +2390,16 @@
         },
         {
             "name": "shopping/apitk-common-bundle",
-            "version": "1.0.0",
+            "version": "1.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/CHECK24/apitk-common-bundle.git",
-                "reference": "5ea43b4bc7439dc6166e6f42b7bd74073f0ebc0a"
+                "reference": "5a623c1ab5945f118bd27a490b610fd1ec86a056"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/CHECK24/apitk-common-bundle/zipball/5ea43b4bc7439dc6166e6f42b7bd74073f0ebc0a",
-                "reference": "5ea43b4bc7439dc6166e6f42b7bd74073f0ebc0a",
+                "url": "https://api.github.com/repos/CHECK24/apitk-common-bundle/zipball/5a623c1ab5945f118bd27a490b610fd1ec86a056",
+                "reference": "5a623c1ab5945f118bd27a490b610fd1ec86a056",
                 "shasum": ""
             },
             "require": {
@@ -2446,23 +2446,23 @@
                 }
             ],
             "support": {
-                "source": "https://github.com/CHECK24/apitk-common-bundle/tree/1.0.0",
+                "source": "https://github.com/CHECK24/apitk-common-bundle/tree/1.0.1",
                 "issues": "https://github.com/CHECK24/apitk-common-bundle/issues"
             },
-            "time": "2018-08-16T12:05:32+00:00"
+            "time": "2018-08-16T13:03:00+00:00"
         },
         {
             "name": "shopping/apitk-deprecation-bundle",
-            "version": "1.0.0",
+            "version": "1.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/CHECK24/apitk-deprecation-bundle.git",
-                "reference": "ca5098c8dabe77d1245bcba040ca98a462998419"
+                "reference": "2051887ac79cef342412b4ae2286050893fbeec5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/CHECK24/apitk-deprecation-bundle/zipball/ca5098c8dabe77d1245bcba040ca98a462998419",
-                "reference": "ca5098c8dabe77d1245bcba040ca98a462998419",
+                "url": "https://api.github.com/repos/CHECK24/apitk-deprecation-bundle/zipball/2051887ac79cef342412b4ae2286050893fbeec5",
+                "reference": "2051887ac79cef342412b4ae2286050893fbeec5",
                 "shasum": ""
             },
             "require": {
@@ -2495,23 +2495,23 @@
             ],
             "description": "This bundle provides deprecation functionality for RESTful APIs.",
             "support": {
-                "source": "https://github.com/CHECK24/apitk-deprecation-bundle/tree/1.0.0",
+                "source": "https://github.com/CHECK24/apitk-deprecation-bundle/tree/1.0.1",
                 "issues": "https://github.com/CHECK24/apitk-deprecation-bundle/issues"
             },
-            "time": "2018-08-16T12:11:27+00:00"
+            "time": "2018-08-16T13:09:22+00:00"
         },
         {
             "name": "shopping/apitk-dtomapper-bundle",
-            "version": "1.0.0",
+            "version": "1.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/CHECK24/apitk-dtomapper-bundle.git",
-                "reference": "2f4fc7ba39086214d6753018ad3c6001dbd8aa21"
+                "reference": "46389ade8f51f3d6dd302ab6f46bee764db9b8ad"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/CHECK24/apitk-dtomapper-bundle/zipball/2f4fc7ba39086214d6753018ad3c6001dbd8aa21",
-                "reference": "2f4fc7ba39086214d6753018ad3c6001dbd8aa21",
+                "url": "https://api.github.com/repos/CHECK24/apitk-dtomapper-bundle/zipball/46389ade8f51f3d6dd302ab6f46bee764db9b8ad",
+                "reference": "46389ade8f51f3d6dd302ab6f46bee764db9b8ad",
                 "shasum": ""
             },
             "require": {
@@ -2543,10 +2543,10 @@
             ],
             "description": "This bundle provides mapping helpers to map rest action to DTOs and render them serialized.",
             "support": {
-                "source": "https://github.com/CHECK24/apitk-dtomapper-bundle/tree/1.0.0",
+                "source": "https://github.com/CHECK24/apitk-dtomapper-bundle/tree/1.0.1",
                 "issues": "https://github.com/CHECK24/apitk-dtomapper-bundle/issues"
             },
-            "time": "2018-08-16T12:36:57+00:00"
+            "time": "2018-08-16T13:06:31+00:00"
         },
         {
             "name": "shopping/apitk-header-bundle",
@@ -2597,16 +2597,16 @@
         },
         {
             "name": "shopping/apitk-url-bundle",
-            "version": "1.0.0",
+            "version": "1.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/CHECK24/apitk-url-bundle.git",
-                "reference": "356744a1800d7b45154911f6117c9e3bf9304750"
+                "reference": "1b7c0fd9b6eb04ce11df8c417d3a71ef4f05207d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/CHECK24/apitk-url-bundle/zipball/356744a1800d7b45154911f6117c9e3bf9304750",
-                "reference": "356744a1800d7b45154911f6117c9e3bf9304750",
+                "url": "https://api.github.com/repos/CHECK24/apitk-url-bundle/zipball/1b7c0fd9b6eb04ce11df8c417d3a71ef4f05207d",
+                "reference": "1b7c0fd9b6eb04ce11df8c417d3a71ef4f05207d",
                 "shasum": ""
             },
             "require": {
@@ -2639,10 +2639,10 @@
             ],
             "description": "This bundle provides filter, sorting and pagination for RESTful API's",
             "support": {
-                "source": "https://github.com/CHECK24/apitk-url-bundle/tree/1.0.0",
+                "source": "https://github.com/CHECK24/apitk-url-bundle/tree/1.0.1",
                 "issues": "https://github.com/CHECK24/apitk-url-bundle/issues"
             },
-            "time": "2018-08-16T12:26:14+00:00"
+            "time": "2018-08-16T13:07:55+00:00"
         },
         {
             "name": "symfony/asset",
