@@ -4,7 +4,7 @@ declare(strict_types=1);
 namespace App\DtoMapper;
 use Api\Dto\AttributeV1;
 use App\Entity\Attribute;
-use Shopping\ApiDtoMapperBundle\DtoMapper\MapperInterface;
+use Shopping\ApiTKDtoMapperBundle\DtoMapper\MapperInterface;
 
 /**
  * Class AttributeV1Mapper

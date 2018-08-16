@@ -170,6 +170,21 @@
     "shopping/api-helper-bundle": {
         "version": "dev-master"
     },
+    "shopping/apitk-common-bundle": {
+        "version": "dev-master"
+    },
+    "shopping/apitk-deprecation-bundle": {
+        "version": "dev-master"
+    },
+    "shopping/apitk-dtomapper-bundle": {
+        "version": "dev-master"
+    },
+    "shopping/apitk-header-bundle": {
+        "version": "dev-master"
+    },
+    "shopping/apitk-url-bundle": {
+        "version": "dev-master"
+    },
     "symfony/asset": {
         "version": "v4.1.0"
     },

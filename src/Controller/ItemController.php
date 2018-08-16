@@ -6,8 +6,8 @@ use App\Entity\Item;
 
 use FOS\RestBundle\Controller\Annotations as Rest;
 use Swagger\Annotations as SWG;
-use Shopping\ApiFilterBundle\Annotation as Rfc14;
-use Shopping\ApiDtoMapperBundle\Annotation as Rfc1;
+use Shopping\ApiTKUrlBundle\Annotation as ApiTK;
+use Shopping\ApiTKDtoMapperBundle\Annotation as DtoMapper;
 
 /**
  * Class ItemController
@@ -20,13 +20,13 @@ class ItemController
      * Returns the items in the system.
      *
      * @Rest\Get("/v1/items")
-     * @Rfc1\View(dtoMapper="App\DtoMapper\ItemV1Mapper")
+     * @DtoMapper\View(dtoMapper="App\DtoMapper\ItemV1Mapper")
      *
-     * @Rfc14\Filter(name="name")
+     * @ApiTK\Filter(name="name")
      *
-     * @Rfc14\Pagination
+     * @ApiTK\Pagination
      *
-     * @Rfc14\Result("items", entity="App\Entity\Item")
+     * @ApiTK\Result("items", entity="App\Entity\Item")
      *
      * @SWG\Tag(name="Item")
      *

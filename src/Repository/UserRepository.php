@@ -3,26 +3,26 @@
 namespace App\Repository;
 
 use App\Entity\User;
-use Doctrine\ORM\EntityRepository;
 use Doctrine\ORM\OptimisticLockException;
 use Doctrine\ORM\ORMException;
-use Shopping\ApiFilterBundle\Repository\Rfc14RepositoryInterface;
-use Shopping\ApiFilterBundle\Service\Rfc14Service;
+use Shopping\ApiTKUrlBundle\Repository\ApiToolkitRepository;
+use Shopping\ApiTKUrlBundle\Service\ApiService;
 
-class UserRepository extends EntityRepository implements Rfc14RepositoryInterface
+class UserRepository extends ApiToolkitRepository
 {
     /**
-     * @param Rfc14Service $rfc14Service
+     * @param ApiService $apiService
+     *
      * @return User[]
      * @throws \Doctrine\ORM\NonUniqueResultException
-     * @throws \Shopping\ApiFilterBundle\Exception\PaginationException
+     * @throws \Shopping\ApiTKUrlBundle\Exception\PaginationException
      */
-    public function findByRfc14(Rfc14Service $rfc14Service): array
+    public function findByRequest(ApiService $apiService): array
     {
         $qb = $this->createQueryBuilder('u');
         $qb->leftJoin('u.addresses', 'a');
 
-        $rfc14Service->applyToQueryBuilder($qb);
+        $apiService->applyToQueryBuilder($qb);
 
         return $qb->getQuery()->getResult();
     }

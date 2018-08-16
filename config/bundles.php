@@ -14,8 +14,9 @@ return [
     Symfony\Bundle\SecurityBundle\SecurityBundle::class => ['all' => true],
     Lexik\Bundle\JWTAuthenticationBundle\LexikJWTAuthenticationBundle::class => ['all' => true],
     KnpU\LoremIpsumBundle\KnpULoremIpsumBundle::class => ['all' => true],
-    Shopping\ApiDtoMapperBundle\ShoppingApiDtoMapperBundle::class => ['all' => true],
-    Shopping\ApiHelperBundle\ShoppingApiHelperBundle::class => ['all' => true],
-    Shopping\ApiFilterBundle\ShoppingApiFilterBundle::class => ['all' => true],
-    Shopping\ApiDeprecationBundle\ShoppingApiDeprecationBundle::class => ['all' => true],
+    Shopping\ApiTKHeaderBundle\ShoppingApiTKHeaderBundle::class => ['all' => true],
+    Shopping\ApiTKCommonBundle\ShoppingApiTKCommonBundle::class => ['all' => true],
+    Shopping\ApiTKDeprecationBundle\ShoppingApiTKDeprecationBundle::class => ['all' => true],
+    Shopping\ApiTKDtoMapperBundle\ShoppingApiTKDtoMapperBundle::class => ['all' => true],
+    Shopping\ApiTKUrlBundle\ShoppingApiTKUrlBundle::class => ['all' => true],
 ];
