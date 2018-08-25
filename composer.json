@@ -12,12 +12,13 @@
         "knpuniversity/lorem-ipsum-bundle": "^1.0",
         "lexik/jwt-authentication-bundle": "^2.4",
         "nelmio/api-doc-bundle": "^3.2",
-        "ofeige/symfony-demo-dto": "dev-master",
+        "ofeige/symfony-demo-dto": "dev-master#12ac9be750e5",
         "sensio/framework-extra-bundle": "^5.2",
-        "shopping/api-deprecation-bundle": "dev-master",
-        "shopping/api-dto-mapper-bundle": "dev-master",
-        "shopping/api-filter-bundle": "dev-master",
-        "shopping/api-helper-bundle": "dev-master",
+        "shopping/apitk-deprecation-bundle": "^1.0",
+        "shopping/apitk-dtomapper-bundle": "^1.0",
+        "shopping/apitk-url-bundle": "^1.0",
+        "shopping/apitk-common-bundle": "^1.0",
+        "shopping/apitk-header-bundle": "^1.0",
         "symfony/asset": "^4.1",
         "symfony/console": "^4.1",
         "symfony/expression-language": "^4.1",
@@ -87,19 +88,22 @@
     "repositories": [
         {
             "type": "vcs",
-            "url": "git@github.com:CHECK24/rfc14-bundle.git"
+            "url": "git@github.com:CHECK24/apitk-common-bundle.git"
         },{
             "type": "vcs",
-            "url": "git@github.com:CHECK24/rfc1-bundle.git"
+            "url": "git@github.com:CHECK24/apitk-header-bundle.git"
         },{
             "type": "vcs",
-            "url": "git@github.com:CHECK24/rfc18-bundle.git"
+            "url": "git@github.com:CHECK24/apitk-url-bundle.git"
+        },{
+            "type": "vcs",
+            "url": "git@github.com:CHECK24/apitk-dtomapper-bundle.git"
+        },{
+            "type": "vcs",
+            "url": "git@github.com:CHECK24/apitk-deprecation-bundle.git"
         },{
             "type": "vcs",
             "url": "git@github.com:ofeige/symfony-demo-dto.git"
-        },{
-            "type": "vcs",
-            "url": "git@github.com:CHECK24/api-bundle.git"
         }
     ]
 }

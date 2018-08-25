@@ -38,7 +38,7 @@ services:
         parent: fos_rest.view_handler.default
         calls:
             - ['registerHandler', ['html', ['@App\Handler\DebugViewHandler', 'createResponse']]]
-            - ['registerHandler', ['dto', ['@Shopping\ApiDtoMapperBundle\Handler\PhpViewHandler', 'createResponse']]]
+            - ['registerHandler', ['dto', ['@Shopping\ApiTKDtoMapperBundle\Handler\PhpViewHandler', 'createResponse']]]
 
     app.apcu_cache:
         class: Doctrine\Common\Cache\ApcuCache

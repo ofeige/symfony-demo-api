@@ -26,9 +26,9 @@ fos_rest:
     exception:
         codes:
             App\Exception\ValidationException: 400
-            Shopping\ApiFilterBundle\Exception\FilterException: 400
-            Shopping\ApiFilterBundle\Exception\SortException: 400
-            Shopping\ApiFilterBundle\Exception\PaginationException: 400
+            Shopping\ApiTKUrlBundle\Exception\FilterException: 400
+            Shopping\ApiTKUrlBundle\Exception\SortException: 400
+            Shopping\ApiTKUrlBundle\Exception\PaginationException: 400
     service:
         view_handler: app.view_handler
 

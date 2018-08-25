@@ -3,24 +3,24 @@
 namespace App\Repository;
 
 use App\Entity\Address;
-use Doctrine\ORM\EntityRepository;
-use Shopping\ApiFilterBundle\Repository\Rfc14RepositoryInterface;
-use Shopping\ApiFilterBundle\Service\Rfc14Service;
+use Shopping\ApiTKUrlBundle\Repository\ApiToolkitRepository;
+use Shopping\ApiTKUrlBundle\Service\ApiService;
 
-class AddressRepository extends EntityRepository implements Rfc14RepositoryInterface
+class AddressRepository extends ApiToolkitRepository
 {
     /**
-     * @param Rfc14Service $rfc14Service
+     * @param ApiService $apiService
+     *
      * @return Address[]
      * @throws \Doctrine\ORM\NonUniqueResultException
-     * @throws \Shopping\ApiFilterBundle\Exception\PaginationException
+     * @throws \Shopping\ApiTKUrlBundle\Exception\PaginationException
      */
-    public function findByRfc14(Rfc14Service $rfc14Service): array
+    public function findByRequest(ApiService $apiService): array
     {
         $qb = $this->createQueryBuilder('a');
         $qb->join('a.user', 'u')->distinct();
 
-        $rfc14Service->applyToQueryBuilder($qb);
+        $apiService->applyToQueryBuilder($qb);
 
         return $qb->getQuery()->getResult();
     }
