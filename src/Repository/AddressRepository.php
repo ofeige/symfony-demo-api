@@ -3,24 +3,32 @@
 namespace App\Repository;
 
 use App\Entity\Address;
-use Doctrine\ORM\EntityRepository;
-use Shopping\ApiFilterBundle\Repository\Rfc14RepositoryInterface;
-use Shopping\ApiFilterBundle\Service\Rfc14Service;
+use Doctrine\ORM\NonUniqueResultException;
+use Shopping\ApiTKUrlBundle\Exception\PaginationException;
+use Shopping\ApiTKUrlBundle\Repository\ApiToolkitRepository;
+use Shopping\ApiTKUrlBundle\Service\ApiService;
+use Symfony\Bridge\Doctrine\RegistryInterface;
 
-class AddressRepository extends EntityRepository implements Rfc14RepositoryInterface
+class AddressRepository extends ApiToolkitRepository
 {
+    public function __construct(RegistryInterface $registry)
+    {
+        parent::__construct($registry, Address::class);
+    }
+
     /**
-     * @param Rfc14Service $rfc14Service
+     * @param ApiService $apiService
+     *
      * @return Address[]
-     * @throws \Doctrine\ORM\NonUniqueResultException
-     * @throws \Shopping\ApiFilterBundle\Exception\PaginationException
+     * @throws NonUniqueResultException
+     * @throws PaginationException
      */
-    public function findByRfc14(Rfc14Service $rfc14Service): array
+    public function findByRequest(ApiService $apiService): array
     {
         $qb = $this->createQueryBuilder('a');
         $qb->join('a.user', 'u')->distinct();
 
-        $rfc14Service->applyToQueryBuilder($qb);
+        $apiService->applyToQueryBuilder($qb);
 
         return $qb->getQuery()->getResult();
     }

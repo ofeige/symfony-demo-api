@@ -12,33 +12,34 @@
         "knpuniversity/lorem-ipsum-bundle": "^1.0",
         "lexik/jwt-authentication-bundle": "^2.4",
         "nelmio/api-doc-bundle": "^3.2",
-        "ofeige/symfony-demo-dto": "dev-master",
+        "ofeige/symfony-demo-dto": "dev-master#12ac9be750e5",
         "sensio/framework-extra-bundle": "^5.2",
-        "shopping/api-deprecation-bundle": "dev-master",
-        "shopping/api-dto-mapper-bundle": "dev-master",
-        "shopping/api-filter-bundle": "dev-master",
-        "shopping/api-helper-bundle": "dev-master",
-        "symfony/asset": "^4.1",
-        "symfony/console": "^4.1",
-        "symfony/expression-language": "^4.1",
+        "check24/apitk-deprecation-bundle": "^1.0",
+        "check24/apitk-dtomapper-bundle": "^1.0",
+        "check24/apitk-url-bundle": "^1.0",
+        "check24/apitk-common-bundle": "^1.0",
+        "check24/apitk-header-bundle": "^1.0",
+        "symfony/asset": "^4.2",
+        "symfony/console": "^4.2",
+        "symfony/expression-language": "^4.2",
         "symfony/flex": "^1.0",
-        "symfony/form": "^4.1",
-        "symfony/framework-bundle": "^4.1",
+        "symfony/form": "^4.2",
+        "symfony/framework-bundle": "^4.2",
         "symfony/lts": "^4@dev",
         "symfony/orm-pack": "^1.0",
         "symfony/profiler-pack": "^1.0",
-        "symfony/routing": "^4.1",
-        "symfony/security-bundle": "^4.1",
+        "symfony/routing": "^4.2",
+        "symfony/security-bundle": "^4.2",
         "symfony/serializer-pack": "^1.0",
         "symfony/test-pack": "^1.0",
-        "symfony/translation": "^4.1",
-        "symfony/twig-bundle": "^4.1",
-        "symfony/validator": "^4.1",
-        "symfony/var-dumper": "^4.1",
-        "symfony/yaml": "^4.1"
+        "symfony/translation": "^4.2",
+        "symfony/twig-bundle": "^4.2",
+        "symfony/validator": "^4.2",
+        "symfony/var-dumper": "^4.2",
+        "symfony/yaml": "^4.2"
     },
     "require-dev": {
-        "symfony/dotenv": "^4.1"
+        "symfony/dotenv": "^4.2"
     },
     "config": {
         "preferred-install": {
@@ -74,6 +75,12 @@
         ],
         "post-update-cmd": [
             "@auto-scripts"
+        ],
+        "setup-clean-db": [
+            "bin/console doctrine:database:drop --if-exists --force",
+            "bin/console doctrine:database:create",
+            "bin/console doctrine:migrations:migrate -n",
+            "bin/console doctrine:fixtures:load -n"
         ]
     },
     "conflict": {
@@ -87,19 +94,22 @@
     "repositories": [
         {
             "type": "vcs",
-            "url": "git@github.com:CHECK24/rfc14-bundle.git"
+            "url": "git@github.com:CHECK24/apitk-common-bundle.git"
         },{
             "type": "vcs",
-            "url": "git@github.com:CHECK24/rfc1-bundle.git"
+            "url": "git@github.com:CHECK24/apitk-header-bundle.git"
         },{
             "type": "vcs",
-            "url": "git@github.com:CHECK24/rfc18-bundle.git"
+            "url": "git@github.com:CHECK24/apitk-url-bundle.git"
+        },{
+            "type": "vcs",
+            "url": "git@github.com:CHECK24/apitk-dtomapper-bundle.git"
+        },{
+            "type": "vcs",
+            "url": "git@github.com:CHECK24/apitk-deprecation-bundle.git"
         },{
             "type": "vcs",
             "url": "git@github.com:ofeige/symfony-demo-dto.git"
-        },{
-            "type": "vcs",
-            "url": "git@github.com:CHECK24/api-bundle.git"
         }
     ]
 }

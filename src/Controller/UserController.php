@@ -11,16 +11,16 @@ use Doctrine\ORM\OptimisticLockException;
 use Doctrine\ORM\ORMException;
 use FOS\RestBundle\Controller\FOSRestController;
 use Nelmio\ApiDocBundle\Annotation\Model;
-use Shopping\ApiFilterBundle\Service\Rfc14Service;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
+use Shopping\ApiTKUrlBundle\Service\ApiService;
 use Symfony\Component\Validator\ConstraintViolationListInterface;
 
 use FOS\RestBundle\Controller\Annotations as Rest;
 use Swagger\Annotations as SWG;
-use Shopping\ApiFilterBundle\Annotation as Rfc14;
-use Shopping\ApiDtoMapperBundle\Annotation as Rfc1;
-use Shopping\ApiDeprecationBundle\Annotation as Rfc18;
+use Shopping\ApiTKUrlBundle\Annotation as ApiTK;
+use Shopping\ApiTKDtoMapperBundle\Annotation as DtoMapper;
+use Shopping\ApiTKDeprecationBundle\Annotation\Deprecated;
 
 /**
  * Class UserController
@@ -32,18 +32,18 @@ class UserController extends FOSRestController
      * Returns the users in the system.
      *
      * @Rest\Get("/v1/users")
-     * @Rfc1\View(dtoMapper="App\DtoMapper\UserV1Mapper")
+     * @DtoMapper\View(dtoMapper="App\DtoMapper\UserV1Mapper")
      *
-     * @Rfc14\Filter(name="username")
-     * @Rfc14\Filter(name="created")
-     * @Rfc14\Filter(name="country", queryBuilderName="a.country")
+     * @ApiTK\Filter(name="username")
+     * @ApiTK\Filter(name="created")
+     * @ApiTK\Filter(name="country", queryBuilderName="a.country")
      *
-     * @Rfc14\Sort(name="username")
-     * @Rfc14\Sort(name="zipcode", queryBuilderName="a.zipCode")
+     * @ApiTK\Sort(name="username")
+     * @ApiTK\Sort(name="zipcode", queryBuilderName="a.zipCode")
      *
-     * @Rfc14\Pagination
+     * @ApiTK\Pagination
      *
-     * @Rfc18\Deprecated(hideInDoc=true)
+     * @Deprecated(hideInDoc=true)
      *
      * @SWG\Tag(name="User")
      * @SWG\Response(
@@ -53,17 +53,18 @@ class UserController extends FOSRestController
      * )
      *
      * @param EntityManagerInterface $entityManager
-     * @param Rfc14Service $rfc14Service
+     * @param ApiService             $apiService
+     *
      * @return User[]
      * @throws \Doctrine\ORM\NonUniqueResultException
-     * @throws \Shopping\ApiFilterBundle\Exception\PaginationException
+     * @throws \Shopping\ApiTKUrlBundle\Exception\PaginationException
      */
-    public function getUsersV1(EntityManagerInterface $entityManager, Rfc14Service $rfc14Service): array
+    public function getUsersV1(EntityManagerInterface $entityManager, ApiService $apiService): array
     {
         /** @var UserRepository $userRepository */
         $userRepository = $entityManager->getRepository(User::class);
 
-        $users = $userRepository->findByRfc14($rfc14Service);
+        $users = $userRepository->findByRequest($apiService);
 
         return $users;
     }
@@ -72,20 +73,20 @@ class UserController extends FOSRestController
      * Returns the users in the system.
      *
      * @Rest\Get("/v2/users")
-     * @Rfc1\View(dtoMapper="App\DtoMapper\UserV2Mapper")
+     * @DtoMapper\View(dtoMapper="App\DtoMapper\UserV2Mapper")
      *
-     * @Rfc14\Filter(name="username")
-     * @Rfc14\Filter(name="created")
-     * @Rfc14\Filter(name="country", queryBuilderName="a.country")
+     * @ApiTK\Filter(name="username")
+     * @ApiTK\Filter(name="created")
+     * @ApiTK\Filter(name="country", queryBuilderName="a.country")
      *
-     * @Rfc14\Sort(name="username")
-     * @Rfc14\Sort(name="zipcode", queryBuilderName="a.zipCode")
+     * @ApiTK\Sort(name="username")
+     * @ApiTK\Sort(name="zipcode", queryBuilderName="a.zipCode")
      *
-     * @Rfc14\Pagination
+     * @ApiTK\Pagination
      *
-     * @Rfc14\Result("users", entity="App\Entity\User")
+     * @ApiTK\Result("users", entity="App\Entity\User")
      *
-     * @Rfc18\Deprecated(removedAfter="2018-10-09")
+     * @Deprecated(removedAfter="2018-10-09")
      *
      * @SWG\Tag(name="User")
      *
@@ -101,9 +102,9 @@ class UserController extends FOSRestController
      * Returns the users in the system.
      *
      * @Rest\Get("/v3/users")
-     * @Rfc1\View(dtoMapper="App\DtoMapper\UserV3Mapper")
+     * @DtoMapper\View(dtoMapper="App\DtoMapper\UserV3Mapper")
      *
-     * @Rfc14\Result("users", entity="App\Entity\User")
+     * @ApiTK\Result("users", entity="App\Entity\User")
      *
      * @SWG\Tag(name="User")
      *
@@ -119,7 +120,7 @@ class UserController extends FOSRestController
      * Returns the user object for the given id.
      *
      * @Rest\Get("/v1/users/{id}")
-     * @Rfc1\View(dtoMapper="App\DtoMapper\UserV3Mapper")
+     * @DtoMapper\View(dtoMapper="App\DtoMapper\UserV3Mapper")
      *
      * @SWG\Tag(name="User")
      * @SWG\Parameter(name="id", in="path", type="integer", description="User id")
@@ -137,12 +138,12 @@ class UserController extends FOSRestController
      * Returns all addresses for the given user.
      *
      * @Rest\Get("/v1/users/{id}/addresses")
-     * @Rfc1\View(dtoMapper="App\DtoMapper\AddressV1Mapper")
+     * @DtoMapper\View(dtoMapper="App\DtoMapper\AddressV1Mapper")
      *
-     * @Rfc14\Filter(name="id", queryBuilderName="u.id")
-     * @Rfc14\Filter(name="type")
+     * @ApiTK\Filter(name="id", queryBuilderName="u.id")
+     * @ApiTK\Filter(name="type")
      *
-     * @Rfc14\Result("addresses", entity="App\Entity\Address")
+     * @ApiTK\Result("addresses", entity="App\Entity\Address")
      *
      * @SWG\Tag(name="User")
      *
@@ -158,7 +159,7 @@ class UserController extends FOSRestController
      * Creates a new user.
      *
      * @Rest\Post("/v1/users")
-     * @Rfc1\View(dtoMapper="App\DtoMapper\UserV1Mapper")
+     * @DtoMapper\View(dtoMapper="App\DtoMapper\UserV1Mapper")
      *
      * @IsGranted("ROLE_ADMIN")
      *
