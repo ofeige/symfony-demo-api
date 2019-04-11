@@ -30,6 +30,8 @@ bin/console doctrine:migrations:migrate -n
 bin/console doctrine:fixtures:load -n
 ``` 
 
+or in one shortcut `composer setup-clean-db`
+
 now create keys for JWTs
 ```
 mkdir config/jwt
