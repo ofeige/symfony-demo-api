@@ -1,11 +1,280 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "1500cddbf8ebd18ff0f821ff2362713c",
+    "content-hash": "e61d31d1c460cac227afdea05afc2258",
     "packages": [
+        {
+            "name": "check24/apitk-common-bundle",
+            "version": "1.0.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/CHECK24/apitk-common-bundle.git",
+                "reference": "cdf6f5fc57cd0ef5cee1fc763e8df34b9d29299d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/CHECK24/apitk-common-bundle/zipball/cdf6f5fc57cd0ef5cee1fc763e8df34b9d29299d",
+                "reference": "cdf6f5fc57cd0ef5cee1fc763e8df34b9d29299d",
+                "shasum": ""
+            },
+            "require": {
+                "nelmio/api-doc-bundle": "^3.2",
+                "php": "^7.1.3",
+                "sensio/framework-extra-bundle": "^5.2",
+                "symfony/config": "^4.1",
+                "symfony/dependency-injection": "^4.1",
+                "symfony/framework-bundle": "^4.1"
+            },
+            "require-dev": {
+                "friendsofphp/php-cs-fixer": "^2.12",
+                "phpmd/phpmd": "^2.6",
+                "phpstan/phpstan": "^0.9",
+                "phpunit/phpunit": "^7.0",
+                "sebastianfeldmann/captainhook": "^2.1",
+                "symfony/phpunit-bridge": "^4.0"
+            },
+            "type": "symfony-bundle",
+            "autoload": {
+                "psr-4": {
+                    "Shopping\\ApiTKCommonBundle\\": ""
+                },
+                "exclude-from-classmap": [
+                    "/Tests/"
+                ]
+            },
+            "scripts": {
+                "post-install-cmd": [
+                    "\\SebastianFeldmann\\CaptainHook\\Composer\\Cmd::install"
+                ]
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Michael Wolf",
+                    "email": "wulf1337@gmail.com"
+                },
+                {
+                    "name": "Alexander Dormann",
+                    "email": "alexdo@alexdo.de"
+                }
+            ],
+            "support": {
+                "source": "https://github.com/CHECK24/apitk-common-bundle/tree/1.0.3",
+                "issues": "https://github.com/CHECK24/apitk-common-bundle/issues"
+            },
+            "time": "2018-09-03T07:45:42+00:00"
+        },
+        {
+            "name": "check24/apitk-deprecation-bundle",
+            "version": "1.0.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/CHECK24/apitk-deprecation-bundle.git",
+                "reference": "de4bfdb27f63f93a5210876019fd531326c52c4b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/CHECK24/apitk-deprecation-bundle/zipball/de4bfdb27f63f93a5210876019fd531326c52c4b",
+                "reference": "de4bfdb27f63f93a5210876019fd531326c52c4b",
+                "shasum": ""
+            },
+            "require": {
+                "check24/apitk-common-bundle": "^1.0",
+                "check24/apitk-header-bundle": "^1.0",
+                "doctrine/annotations": "^1.6",
+                "doctrine/orm": "^2.6",
+                "nelmio/api-doc-bundle": "^3.2",
+                "php": "^7.1.3",
+                "sensio/framework-extra-bundle": "^5.1",
+                "symfony/config": "^4.1",
+                "symfony/dependency-injection": "^4.1",
+                "symfony/framework-bundle": "^4.1",
+                "symfony/http-kernel": "^4.1"
+            },
+            "type": "symfony-bundle",
+            "autoload": {
+                "psr-4": {
+                    "Shopping\\ApiTKDeprecationBundle\\": ""
+                },
+                "exclude-from-classmap": [
+                    "Tests/"
+                ]
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Michael Wolf",
+                    "email": "wulf1337@gmail.com"
+                }
+            ],
+            "description": "This bundle provides deprecation functionality for RESTful APIs.",
+            "support": {
+                "source": "https://github.com/CHECK24/apitk-deprecation-bundle/tree/1.0.3",
+                "issues": "https://github.com/CHECK24/apitk-deprecation-bundle/issues"
+            },
+            "time": "2018-09-03T07:58:21+00:00"
+        },
+        {
+            "name": "check24/apitk-dtomapper-bundle",
+            "version": "1.0.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/CHECK24/apitk-dtomapper-bundle.git",
+                "reference": "ab7a08b9648928fd89136adb577d496e34d669a2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/CHECK24/apitk-dtomapper-bundle/zipball/ab7a08b9648928fd89136adb577d496e34d669a2",
+                "reference": "ab7a08b9648928fd89136adb577d496e34d669a2",
+                "shasum": ""
+            },
+            "require": {
+                "check24/apitk-common-bundle": "^1.0",
+                "doctrine/annotations": "^1.6",
+                "doctrine/orm": "^2.6",
+                "friendsofsymfony/rest-bundle": "^2.3",
+                "nelmio/api-doc-bundle": "^3.2",
+                "php": "^7.1.3",
+                "symfony/config": "^4.1",
+                "symfony/dependency-injection": "^4.1",
+                "symfony/framework-bundle": "^4.1",
+                "symfony/http-kernel": "^4.1"
+            },
+            "type": "symfony-bundle",
+            "autoload": {
+                "psr-4": {
+                    "Shopping\\ApiTKDtoMapperBundle\\": ""
+                },
+                "exclude-from-classmap": [
+                    "Tests/"
+                ]
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Michael Wolf",
+                    "email": "wulf1337@gmail.com"
+                }
+            ],
+            "description": "This bundle provides mapping helpers to map rest action to DTOs and render them serialized.",
+            "support": {
+                "source": "https://github.com/CHECK24/apitk-dtomapper-bundle/tree/1.0.4",
+                "issues": "https://github.com/CHECK24/apitk-dtomapper-bundle/issues"
+            },
+            "time": "2019-03-04T12:05:34+00:00"
+        },
+        {
+            "name": "check24/apitk-header-bundle",
+            "version": "1.0.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/CHECK24/apitk-header-bundle.git",
+                "reference": "160c3c0f7a325b56f2677aac4ecd3dcf800c7dc2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/CHECK24/apitk-header-bundle/zipball/160c3c0f7a325b56f2677aac4ecd3dcf800c7dc2",
+                "reference": "160c3c0f7a325b56f2677aac4ecd3dcf800c7dc2",
+                "shasum": ""
+            },
+            "require": {
+                "doctrine/annotations": "^1.6",
+                "doctrine/orm": "^2.6",
+                "nelmio/api-doc-bundle": "^3.2",
+                "php": "^7.1.3",
+                "sensio/framework-extra-bundle": "^5.1",
+                "symfony/config": "^4.1",
+                "symfony/dependency-injection": "^4.1",
+                "symfony/framework-bundle": "^4.1",
+                "symfony/http-kernel": "^4.1"
+            },
+            "type": "symfony-bundle",
+            "autoload": {
+                "psr-4": {
+                    "Shopping\\ApiTKHeaderBundle\\": ""
+                },
+                "exclude-from-classmap": [
+                    "Tests/"
+                ]
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Michael Wolf",
+                    "email": "wulf1337@gmail.com"
+                }
+            ],
+            "description": "This bundle provides helpful api helpers for RESTful API's",
+            "support": {
+                "source": "https://github.com/CHECK24/apitk-header-bundle/tree/1.0.2",
+                "issues": "https://github.com/CHECK24/apitk-header-bundle/issues"
+            },
+            "time": "2018-09-03T07:45:52+00:00"
+        },
+        {
+            "name": "check24/apitk-url-bundle",
+            "version": "1.0.9",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/CHECK24/apitk-url-bundle.git",
+                "reference": "7e389051bbd57639bcafe6260452a47f507a67c8"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/CHECK24/apitk-url-bundle/zipball/7e389051bbd57639bcafe6260452a47f507a67c8",
+                "reference": "7e389051bbd57639bcafe6260452a47f507a67c8",
+                "shasum": ""
+            },
+            "require": {
+                "check24/apitk-common-bundle": "^1.0",
+                "check24/apitk-header-bundle": "^1.0",
+                "doctrine/annotations": "^1.6",
+                "doctrine/doctrine-bundle": "^1.8",
+                "doctrine/orm": "^2.6",
+                "nelmio/api-doc-bundle": "^3.2",
+                "php": "^7.1.3",
+                "sensio/framework-extra-bundle": "^5.1",
+                "symfony/config": "^4.1",
+                "symfony/dependency-injection": "^4.1",
+                "symfony/framework-bundle": "^4.1",
+                "symfony/http-kernel": "^4.1"
+            },
+            "type": "symfony-bundle",
+            "autoload": {
+                "psr-4": {
+                    "Shopping\\ApiTKUrlBundle\\": ""
+                },
+                "exclude-from-classmap": [
+                    "Tests/"
+                ]
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Michael Wolf",
+                    "email": "wulf1337@gmail.com"
+                }
+            ],
+            "description": "This bundle provides filter, sorting and pagination for RESTful API's",
+            "support": {
+                "source": "https://github.com/CHECK24/apitk-url-bundle/tree/1.0.9",
+                "issues": "https://github.com/CHECK24/apitk-url-bundle/issues"
+            },
+            "time": "2019-02-28T08:40:24+00:00"
+        },
         {
             "name": "doctrine/annotations",
             "version": "v1.6.1",
@@ -2469,262 +2738,6 @@
                 "controllers"
             ],
             "time": "2019-04-10T06:00:20+00:00"
-        },
-        {
-            "name": "shopping/apitk-common-bundle",
-            "version": "1.0.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/CHECK24/apitk-common-bundle.git",
-                "reference": "5a623c1ab5945f118bd27a490b610fd1ec86a056"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/CHECK24/apitk-common-bundle/zipball/5a623c1ab5945f118bd27a490b610fd1ec86a056",
-                "reference": "5a623c1ab5945f118bd27a490b610fd1ec86a056",
-                "shasum": ""
-            },
-            "require": {
-                "nelmio/api-doc-bundle": "^3.2",
-                "php": "^7.1.3",
-                "sensio/framework-extra-bundle": "^5.2",
-                "symfony/config": "^4.1",
-                "symfony/dependency-injection": "^4.1",
-                "symfony/framework-bundle": "^4.1"
-            },
-            "require-dev": {
-                "friendsofphp/php-cs-fixer": "^2.12",
-                "phpmd/phpmd": "^2.6",
-                "phpstan/phpstan": "^0.9",
-                "phpunit/phpunit": "^7.0",
-                "sebastianfeldmann/captainhook": "^2.1",
-                "symfony/phpunit-bridge": "^4.0"
-            },
-            "type": "symfony-bundle",
-            "autoload": {
-                "psr-4": {
-                    "Shopping\\ApiTKCommonBundle\\": ""
-                },
-                "exclude-from-classmap": [
-                    "/Tests/"
-                ]
-            },
-            "scripts": {
-                "post-install-cmd": [
-                    "\\SebastianFeldmann\\CaptainHook\\Composer\\Cmd::install"
-                ]
-            },
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Michael Wolf",
-                    "email": "wulf1337@gmail.com"
-                },
-                {
-                    "name": "Alexander Dormann",
-                    "email": "alexdo@alexdo.de"
-                }
-            ],
-            "support": {
-                "source": "https://github.com/CHECK24/apitk-common-bundle/tree/1.0.1",
-                "issues": "https://github.com/CHECK24/apitk-common-bundle/issues"
-            },
-            "time": "2018-08-16T13:03:00+00:00"
-        },
-        {
-            "name": "shopping/apitk-deprecation-bundle",
-            "version": "1.0.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/CHECK24/apitk-deprecation-bundle.git",
-                "reference": "2051887ac79cef342412b4ae2286050893fbeec5"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/CHECK24/apitk-deprecation-bundle/zipball/2051887ac79cef342412b4ae2286050893fbeec5",
-                "reference": "2051887ac79cef342412b4ae2286050893fbeec5",
-                "shasum": ""
-            },
-            "require": {
-                "doctrine/annotations": "^1.6",
-                "doctrine/orm": "^2.6",
-                "nelmio/api-doc-bundle": "^3.2",
-                "php": "^7.1.3",
-                "sensio/framework-extra-bundle": "^5.1",
-                "shopping/apitk-common-bundle": "^1.0",
-                "shopping/apitk-header-bundle": "^1.0",
-                "symfony/config": "^4.1",
-                "symfony/dependency-injection": "^4.1",
-                "symfony/framework-bundle": "^4.1",
-                "symfony/http-kernel": "^4.1"
-            },
-            "type": "symfony-bundle",
-            "autoload": {
-                "psr-4": {
-                    "Shopping\\ApiTKDeprecationBundle\\": ""
-                },
-                "exclude-from-classmap": [
-                    "Tests/"
-                ]
-            },
-            "authors": [
-                {
-                    "name": "Michael Wolf",
-                    "email": "wulf1337@gmail.com"
-                }
-            ],
-            "description": "This bundle provides deprecation functionality for RESTful APIs.",
-            "support": {
-                "source": "https://github.com/CHECK24/apitk-deprecation-bundle/tree/1.0.1",
-                "issues": "https://github.com/CHECK24/apitk-deprecation-bundle/issues"
-            },
-            "time": "2018-08-16T13:09:22+00:00"
-        },
-        {
-            "name": "shopping/apitk-dtomapper-bundle",
-            "version": "1.0.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/CHECK24/apitk-dtomapper-bundle.git",
-                "reference": "46389ade8f51f3d6dd302ab6f46bee764db9b8ad"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/CHECK24/apitk-dtomapper-bundle/zipball/46389ade8f51f3d6dd302ab6f46bee764db9b8ad",
-                "reference": "46389ade8f51f3d6dd302ab6f46bee764db9b8ad",
-                "shasum": ""
-            },
-            "require": {
-                "doctrine/annotations": "^1.6",
-                "doctrine/orm": "^2.6",
-                "friendsofsymfony/rest-bundle": "^2.3",
-                "nelmio/api-doc-bundle": "^3.2",
-                "php": "^7.1.3",
-                "shopping/apitk-common-bundle": "^1.0",
-                "symfony/config": "^4.1",
-                "symfony/dependency-injection": "^4.1",
-                "symfony/framework-bundle": "^4.1",
-                "symfony/http-kernel": "^4.1"
-            },
-            "type": "symfony-bundle",
-            "autoload": {
-                "psr-4": {
-                    "Shopping\\ApiTKDtoMapperBundle\\": ""
-                },
-                "exclude-from-classmap": [
-                    "Tests/"
-                ]
-            },
-            "authors": [
-                {
-                    "name": "Michael Wolf",
-                    "email": "wulf1337@gmail.com"
-                }
-            ],
-            "description": "This bundle provides mapping helpers to map rest action to DTOs and render them serialized.",
-            "support": {
-                "source": "https://github.com/CHECK24/apitk-dtomapper-bundle/tree/1.0.1",
-                "issues": "https://github.com/CHECK24/apitk-dtomapper-bundle/issues"
-            },
-            "time": "2018-08-16T13:06:31+00:00"
-        },
-        {
-            "name": "shopping/apitk-header-bundle",
-            "version": "1.0.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/CHECK24/apitk-header-bundle.git",
-                "reference": "b581d7e7a6a80d629711fe34a4e83a5eddf8b58d"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/CHECK24/apitk-header-bundle/zipball/b581d7e7a6a80d629711fe34a4e83a5eddf8b58d",
-                "reference": "b581d7e7a6a80d629711fe34a4e83a5eddf8b58d",
-                "shasum": ""
-            },
-            "require": {
-                "doctrine/annotations": "^1.6",
-                "doctrine/orm": "^2.6",
-                "nelmio/api-doc-bundle": "^3.2",
-                "php": "^7.1.3",
-                "sensio/framework-extra-bundle": "^5.1",
-                "symfony/config": "^4.1",
-                "symfony/dependency-injection": "^4.1",
-                "symfony/framework-bundle": "^4.1",
-                "symfony/http-kernel": "^4.1"
-            },
-            "type": "symfony-bundle",
-            "autoload": {
-                "psr-4": {
-                    "Shopping\\ApiTKHeaderBundle\\": ""
-                },
-                "exclude-from-classmap": [
-                    "Tests/"
-                ]
-            },
-            "authors": [
-                {
-                    "name": "Michael Wolf",
-                    "email": "wulf1337@gmail.com"
-                }
-            ],
-            "description": "This bundle provides helpful api helpers for RESTful API's",
-            "support": {
-                "source": "https://github.com/CHECK24/apitk-header-bundle/tree/1.0.0",
-                "issues": "https://github.com/CHECK24/apitk-header-bundle/issues"
-            },
-            "time": "2018-08-16T12:08:08+00:00"
-        },
-        {
-            "name": "shopping/apitk-url-bundle",
-            "version": "1.0.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/CHECK24/apitk-url-bundle.git",
-                "reference": "1b7c0fd9b6eb04ce11df8c417d3a71ef4f05207d"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/CHECK24/apitk-url-bundle/zipball/1b7c0fd9b6eb04ce11df8c417d3a71ef4f05207d",
-                "reference": "1b7c0fd9b6eb04ce11df8c417d3a71ef4f05207d",
-                "shasum": ""
-            },
-            "require": {
-                "doctrine/annotations": "^1.6",
-                "doctrine/orm": "^2.6",
-                "nelmio/api-doc-bundle": "^3.2",
-                "php": "^7.1.3",
-                "sensio/framework-extra-bundle": "^5.1",
-                "shopping/apitk-common-bundle": "^1.0",
-                "shopping/apitk-header-bundle": "^1.0",
-                "symfony/config": "^4.1",
-                "symfony/dependency-injection": "^4.1",
-                "symfony/framework-bundle": "^4.1",
-                "symfony/http-kernel": "^4.1"
-            },
-            "type": "symfony-bundle",
-            "autoload": {
-                "psr-4": {
-                    "Shopping\\ApiTKUrlBundle\\": ""
-                },
-                "exclude-from-classmap": [
-                    "Tests/"
-                ]
-            },
-            "authors": [
-                {
-                    "name": "Michael Wolf",
-                    "email": "wulf1337@gmail.com"
-                }
-            ],
-            "description": "This bundle provides filter, sorting and pagination for RESTful API's",
-            "support": {
-                "source": "https://github.com/CHECK24/apitk-url-bundle/tree/1.0.1",
-                "issues": "https://github.com/CHECK24/apitk-url-bundle/issues"
-            },
-            "time": "2018-08-16T13:07:55+00:00"
         },
         {
             "name": "symfony/asset",

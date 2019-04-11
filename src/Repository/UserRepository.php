@@ -3,19 +3,27 @@
 namespace App\Repository;
 
 use App\Entity\User;
+use Doctrine\ORM\NonUniqueResultException;
 use Doctrine\ORM\OptimisticLockException;
 use Doctrine\ORM\ORMException;
+use Shopping\ApiTKUrlBundle\Exception\PaginationException;
 use Shopping\ApiTKUrlBundle\Repository\ApiToolkitRepository;
 use Shopping\ApiTKUrlBundle\Service\ApiService;
+use Symfony\Bridge\Doctrine\RegistryInterface;
 
 class UserRepository extends ApiToolkitRepository
 {
+    public function __construct(RegistryInterface $registry)
+    {
+        parent::__construct($registry, User::class);
+    }
+
     /**
      * @param ApiService $apiService
      *
      * @return User[]
-     * @throws \Doctrine\ORM\NonUniqueResultException
-     * @throws \Shopping\ApiTKUrlBundle\Exception\PaginationException
+     * @throws NonUniqueResultException
+     * @throws PaginationException
      */
     public function findByRequest(ApiService $apiService): array
     {
